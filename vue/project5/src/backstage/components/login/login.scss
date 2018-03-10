@@ -1,0 +1,59 @@
+.login-box{
+	width: 428px;
+	height: 298px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -80%);
+	background: #FFFFFF;
+    border-radius: 5px;
+    box-shadow: -30px 30px 50px rgba(0, 0, 0, 0.32);
+    padding: 15px;
+	border-top: solid 1px #efefef;
+	border-right: solid 1px #efefef;
+	h3{
+		font-size: 24px;
+		margin:10px 0px;
+		text-align: center;
+	}
+	.username,.password{
+		display: block;
+		width: 94%;
+		height: 34px;
+		padding: 6px 12px;
+		font-size: 14px;
+		line-height: 1.428571429;
+		color: #555;
+		background-color: #fff;
+		background-image: none;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		margin:10px 0px;
+	}
+	.login{
+		display:block;
+		font-weight: 400;
+		text-align: center;
+		cursor: pointer;
+		border: 1px solid transparent;
+		white-space: nowrap;
+		padding: 6px 12px;
+		font-size: 14px;
+		line-height: 1.428571429;
+		border-radius: 4px;
+		background: #428cba;
+		color:#fff;
+		margin:0 auto;
+	}
+    .copyright{
+    	font-size: 11px;
+	    margin: 0 auto;
+	    padding: 10px 10px 0;
+	    text-align: center;
+	    position: absolute;
+	    bottom: -32px;
+	    left: 50%;
+	    transform: translate(-50%, 0);
+	    color: #7F7F7F;
+    }
+}

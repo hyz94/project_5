@@ -14,6 +14,9 @@ import Cart from '../components/cart/cart.vue'
 import Mind from '../components/mine/mine.vue'
 
 import Req1 from '../components/classify/req/req1.vue'
+import Req2 from '../components/classify/req/req2.vue'
+import Req3 from '../components/classify/req/req3.vue'
+import Req4 from '../components/classify/req/req4.vue'
 
 import DetailComponent  from '../components/detailAll/detail/detail.vue'
 
@@ -24,9 +27,21 @@ import Zhuce from '../components/zhuce/zhuce.vue'
 const router = new VueRouter({
     routes:[
         {path:'/',component:Home,children:[
-            {path:'classify',component:Class,children:[
+            {path:'classify',component:Class,redirect:'/bwear',children:[
                 {   path:'/bwear',
                     component:Req1,
+                },
+                {
+                    path:'/gwear',
+                    component:Req2
+                },
+                {
+                    path:'/bshoes',
+                    component:Req3
+                },
+                {
+                    path:'/gshoes',
+                    component:Req4
                 }
             ]},
             {path:'cart',component:Cart},

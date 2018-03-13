@@ -14,7 +14,7 @@
                 config:{
                     api:'http://10.3.136.9:8080/products',
                     params:{},
-                    cols:['manClothes']
+                    cols:['womenShoes']
                 }
             }
         }

@@ -1,0 +1,16 @@
+.plub li{
+    display: inline-block;
+    width: 33%;
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+}
+.plub li img{
+    display: block;
+    margin: 0.1rem auto;
+    width: 75%;
+}
+.plub li span{
+    display: block;
+    color: #999;
+}

@@ -1,10 +1,54 @@
 <template>
     <div>
-        <h1>测试一下</h1>
+        <ul class="plub">
+            <li v-for="(obj,idx) in dataset">
+                <img :src="obj.imgurl"/>
+                <span>{{obj.smallType}}</span>
+            </li>
+        </ul>
     </div>
 </template>
 <script>
+    import './plub.css'
+    import axios from 'axios'
     export default{
+        data(){
+            return{
+                arr:[],
+                dataset:[],
+                del:[],
+                img:''
+            }
+        },
+        props:['config'],
+        mounted(){
+            axios.get(this.config.api,{params:this.config.params || {}}).then((res)=>{
+                for(var i=0;i<res.data.data.length;i++){
+                    if(res.data.data[i].mainType == this.config.cols){
+                        this.arr.push(res.data.data[i]);
+                    }
+                }
+                /*for(var i=0;i<this.arr.length;i++){
+                    if(i==this.arr.length-1){
+                        break;
+                    }
+                    if(this.arr[i].smallType != this.arr[i+1].smallType){
+                        this.dataset.push(this.arr[i])
+                    }
+                }
+                console.log(this.dataset);*/
+                function arrayUnique2(arr, name) {
+                    var hash = {};
+                    return arr.reduce(function (item, next) {
+                    hash[next[name]] ? '' : hash[next[name]] = true && item.push(next);
+                    return item;
+                  }, []);
+                }          
+                this.dataset = arrayUnique2(this.arr, "smallType");
+                console.log(this.dataset);
+                
 
+            })
+        }
     }
 </script>

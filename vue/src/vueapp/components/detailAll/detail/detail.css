@@ -1,6 +1,6 @@
-.bianjie{border:0.5px solid #CCCCCC;margin:0 20px;}
-.bianjie2{border:0.5px solid #CCCCCC;margin-top: 20px;}
-.bianjie3{border:0.5px solid #666666;margin-bottom: 10px;}
+.bianjie{border:1px solid #CCCCCC;margin:0 40px;}
+.bianjie2{border:1px solid #CCCCCC;margin-top: 40px;}
+.bianjie3{border:1px solid #666666;margin-bottom: 20px;}
 
 
 
@@ -10,68 +10,74 @@
 
 .wrap{height: 100%;display:flex;flex-direction: column;}
 .topTitle{
-    height: 48px;
+    height: 96px;
     text-align: center;color:#fff;
-    background-color: #b81c22;
+    background-color: #b81c22;position: relative;
+}
+.topTitle .fa-chevron-left{
+    position:absolute;left: 33px;top: 20px;font-size: 55px;
 }
 .topTitle .curTitle{
-    display:block;margin:0 auto;height: 48px;font-size: 15px;width:60px;line-height: 48px;}
+    display:block;margin:0 auto;height: 96px;font-size: 30px;width:120px;line-height: 96px;}
 .detail_slider{
-    height: 265px;padding:6px 32px 0 ;
+    height: 512px;padding:12px 64px 0 ;
 }
 .detail_info {
-    padding:6px 20px;
+    padding:12px 40px;
 }
 .detail_info .detail_info_tit{
-    font-size: 12px;color:#4c4c4c;line-height: 28px;
+    font-size: 24px;color:#4c4c4c;line-height: 56px;
     display:flex;justify-content: space-between;
 }
 .detail_info .detail_info_tit .detail_price{
-    color:#c8161e; font-size: 14px;
+    color:#c8161e; font-size: 28px;
 }
 .detail_info p{
-    font-size: 12px;color:#c8161e;line-height: 28px;
+    font-size: 24px;color:#c8161e;line-height: 56px;
 }
 .detail_size{
-    margin:9px 20px;
+    margin:18px 40px;
 }
 .detail_size .detail_size_tit{
-    background-color: #F5F5F5;height: 35px;
-    font-size: 12px;line-height: 35px;
+    background-color: #F5F5F5;height: 70px;
+    font-size: 24px;line-height: 70px;
 }
 .detail_size .color_select,.size_select,.num_select{
-   /* padding:0 24px;*/margin-top: 10px;
+   /* padding:0 24px;*/margin-top: 20px;
 }
 .detail_size h6{
-    font-size: 10px;font-weight: 400;line-height: 30px;
+    font-size: 25px;font-weight: 400;line-height: 60px;
 }
 .detail_size .color_select span,.detail_size .size_select span,.num_select span{
-    padding:6px 9px;border:1px solid #b3b3b3;display:inline-block;margin-right: 6px;margin-top: 6px;
-    font-size: 10px;border-radius: 0.2px;
+    padding:12px 18px;border:1px solid #b3b3b3;display:inline-block;margin-right: 12px;margin-top: 12px;
+    font-size: 26px;border-radius: 0.4px;
 }
 .detail_list{
-    margin:18px 0;display:flex;
+    margin:36px 0;display:flex;
 }
 .detail_list li{
-    float: left;font-size: 12px;text-align: center;flex:1;
+    float: left;font-size: 24px;text-align: center;flex:1;
 }
 
 
 .detail_nav{
-    border-top: 1px solid #999999;display:flex;
+    border-top: 2px solid #999999;display:flex;
 }
 .detail_nav .btnBuycar{
-    flex:1;background-color: #58bc58;
+    flex:1;background-color: #fff;
+}
+.fa-shopping-cart{
+    font-size: 50px;
 }
 
 .detail_nav .btnBuycar .pro_num{
     margin:0 auto;
-    width: 20px;height: 20px;background-color: #b81c22;color:#fff;
+    width: 40px;height: 40px;background-color: #b81c22;color:#fff;
 }
 
 .detail_nav .btnAddbuycar{
-    flex:1;background-color: #b81c22;color:#fff;font-size: 12px;
-    height: 60px;line-height: 60px;
+    flex:1;background-color: #b81c22;color:#fff;font-size: 24px;
+    height: 120px;line-height: 120px;
 }
 .wrap .detail_content{flex:1;overflow-x: hidden;}
 

@@ -1,0 +1,23 @@
+.comments{
+    li{
+        padding:10px 40px;border-bottom:1.5px dashed #999;
+
+        p{
+             color:#999;font-size: 24px;
+             margin: 10px 0;line-height: 30px;
+
+             &.nameTime{
+                display:flex;justify-content:space-between;
+             }
+        }
+    }
+
+    margin-bottom: 15px;
+}
+.btnWrap{
+    padding:48px 160px;
+    
+    .btnMore{
+        width: 320px;height: 58px;color:#999;background-color: #FFF;font-size: 32px;
+    }
+}

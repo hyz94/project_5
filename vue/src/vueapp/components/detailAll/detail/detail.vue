@@ -2,14 +2,14 @@
     <div  class="wrap">
 
         <div class="topTitle">
-            <span></span>
+            <span class="fa fa-chevron-left" @click="goback" ></span>
             <span class="curTitle">商品详情</span>
         </div>  
 
         <div class="detail_content">
             
             <div class="detail_slider">
-                <img src="../../../img/dxcs1.jpg" width="256px" heigth="256px"    />
+                <img src="../../../img/dxcs1.jpg" width="512px" heigth="512px"    />
             </div>
             <div class="detail_info">
               
@@ -67,6 +67,7 @@
 
         <div class="detail_nav">
             <button class="btnBuycar">
+                <i class="fa fa-shopping-cart"></i>
                 <div class="pro_num">{{buycarQty}}</div>
             </button>
             <button class="btnAddbuycar" @click="buycarQty += qty" >加入购物车</button>
@@ -85,6 +86,8 @@
     import pro_xiangqing from '../pro_xiangqing/pro_xiangqing.vue';
     import pro_consult from '../pro_consult/pro_consult.vue';
     import pro_comment from '../pro_comment/pro_comment.vue';
+
+    import router from '.././../../router/router.js'
 
 
     export default {
@@ -125,6 +128,9 @@
            qtyJian(){
               if(this.qty<=1){return false;}else{this.qty--}
            },
+           goback(){
+                router.push("/bwear");
+           }
          
            
         },

@@ -4,6 +4,9 @@ import VueRouter from 'vue-router';
 
 import LoginComponent from '../components/login/login.vue';
 import HomeComponent from '../components/home/home.vue';
+import ProductsComponent from '../components/products/products.vue'
+
+
 
 Vue.use(VueRouter);
 
@@ -19,7 +22,19 @@ const router = new VueRouter({
             path: '/home',
             name: 'home',
             component: HomeComponent,
+            children: [
+                {
+                    path: '/products',
+                    name: 'products',
+                    components:{
+                        default: ProductsComponent,
+
+                    }
+                }
+            ]
         },
+
+  
         
 
     ]

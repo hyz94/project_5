@@ -1,0 +1,20 @@
+
+table{font-size: 14px;}
+table>tbody>tr{line-height: 2.0;}
+.table th,.table td{padding:8px;}
+.operate{width:100%;margin:5px 0px;}
+/* #insert,#add[type='button']{padding:3px 5px;font-size: 14px;} */
+.insert{display: none;}
+.toOperate{margin:10px 0px;}
+label{width:80px;text-align: right;}
+.qtylist{float: right;}
+.compile{width:300px;height:400px;border:1px solid #ccc;background: #eee;;position: fixed;top:50%;left:50%;margin-top:-200px;margin-left:-50px;}
+.compile h5{text-align: center;line-height: 30px;}
+.compile .compileDel{display: block;position: absolute;top:5px;right:5px;padding:1px 5px;}
+.compile .compileDel:hover{background: red;}
+.compileBtn{margin-right:3px;background:#00ffc6;padding: 0px 2px;cursor: pointer;border-radius: 5px;}
+.delBtn{background: #ff0039;padding: 0px 2px;cursor: pointer;border-radius: 5px;}
+/* 修改bootstrap的样式 */
+.form-control{display: inline-block;width:200px;height:40px;}
+.btn{vertical-align:bottom;}
+.btn-info,.btn-danger{line-height: 1.0;margin-right:5px;}

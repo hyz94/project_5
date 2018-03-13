@@ -17,6 +17,9 @@ import Req1 from '../components/classify/req/req1.vue'
 
 import DetailComponent  from '../components/detailAll/detail/detail.vue'
 
+import Login from '../components/login/log.vue'
+import Zhuce from '../components/zhuce/zhuce.vue'
+
 
 const router = new VueRouter({
     routes:[
@@ -30,6 +33,12 @@ const router = new VueRouter({
             {path:'mine',component:Mind},
             {
                 path:'/detailPro',component:DetailComponent
+            },
+            {
+                path:'/login',component:Login
+            },
+            {
+                path:'/zhuce',component:Zhuce
             }
         ]}
     ]

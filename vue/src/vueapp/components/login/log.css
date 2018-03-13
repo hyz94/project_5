@@ -1,0 +1,97 @@
+
+.login{
+    height: 100%;
+    display:flex;
+    flex-direction:column;
+}
+.l_head{
+    height: 100px;
+    background-color: #B81B22;
+    color:#fff;
+    position:relative;
+}
+.l_head b{
+    font-size: 80px;
+    position:absolute;
+    left: 20px;
+    top:-10px;
+    font-weight: normal;
+}
+.l_head p{
+    font-size: 30px;
+    text-align: center;
+    line-height: 100px;
+}
+
+
+.l_main .container{
+    margin: 0 auto;
+    width: 565px;
+    height: 800px;
+    display:flex;
+    flex-direction:column;
+}
+.l_main div{
+    height: 80px;
+    /*background-color: #ccc;*/
+    justify-content:space-between;
+
+}
+.l_main .btn input:hover{
+    border-bottom: 6px solid #B81B22;
+}
+.l_main .btn input{
+    float: left;
+    width: 50%;
+    height: 100%;
+    font-size: 28px;
+    background-color: #fff;
+    text-align: center;
+    line-height: 80px;
+    color:#686667;
+    border: none;
+    border-bottom: 6px solid #fff;
+}
+.l_main .user input{
+    width: 100%;
+    height: 100%;
+    padding-left: 20px;
+    background-color: #F5F5F5;
+    font-size:24px;
+    border: none;
+    color: #787471;
+}
+.l_main .mima input{
+    width: 100%;
+    height: 100%;
+    padding-left: 20px;
+    background-color: #F5F5F5;
+    font-size:24px;
+    border: none;
+    color: #787471;
+}
+.l_main .denglu input{
+    width: 100%;
+    height: 100%;
+    background-color: #B81B24;
+    font-size:30px;
+    border: none;
+    color: #fff;
+    border-radius:10px;
+}
+.l_main .links{
+    display:flex;
+    justify-content:space-between;
+}
+.l_main .links a{
+    font-size: 26px;
+    color:#686667;
+}
+.l_main .else{
+    font-size: 26px;
+    color:#686667;
+}
+.l_main .else img{
+    width: 50%;
+    height: 60%;
+}

@@ -1,0 +1,100 @@
+
+.zhuce{
+    height: 100%;
+    display:flex;
+    flex-direction:column;
+}
+.z_head{
+    height: 100px;
+    background-color: #B81B22;
+    color:#fff;
+    position:relative;
+}
+.z_head b{
+    font-size: 80px;
+    position:absolute;
+    left: 20px;
+    top:-10px;
+    font-weight: normal;
+}
+.z_head p{
+    font-size: 30px;
+    text-align: center;
+    line-height: 100px;
+}
+
+.z_main .container{
+    margin: 60px auto;
+    width: 565px;
+    height: 700px;
+    display:flex;
+    flex-direction:column;
+}
+.z_main div{
+    height: 70px;
+    justify-content:space-between;
+}
+.z_main input{
+    border: none;
+    font-size: 28px;
+    padding-left: 20px;
+    background-color: #F5F5F5;
+}
+.z_main .yanzheng input{
+    width: 60%;
+    height: 100%;
+    float: left;
+}
+.z_main .yanzheng div{
+    width: 20%;
+    height: 100%;
+    border: 1px solid #bbb;
+    float: right;
+    font-size: 42px;
+    color:#B81B24;
+    text-align: center;
+    line-height: 70px;
+    font-weight: bold;
+}
+.z_main .phone input{
+    width: 60%;
+    height: 100%;
+    float: left;
+}
+.z_main .phone div{
+    width: 30%;
+    height: 110%;
+    border: 3px solid #B2B2B2;
+    float: right;
+    font-size: 28px;
+    color:#6F3738;
+    text-align: center;
+    line-height: 74px;
+    font-weight: bold;
+    border-radius:10px;
+}
+.z_main .user input{
+    width: 100%;
+    height: 100%;
+}
+.z_main .pwd input{
+    width: 100%;
+    height: 100%;
+}
+.z_main .agree{
+    font-size: 24px;
+    color:#ccc;
+    text-align: center;
+    line-height: 58px;
+}
+.z_main .agree a{
+    color:#898B98;
+}
+.z_main .btn button{
+    width: 100%;
+    height: 100%;
+    background-color: #B81B22;
+    font-size: 32px;
+    color: #fff;
+    border-radius: 10px;
+}

@@ -1,0 +1,156 @@
+.mine{
+    height: 100%;
+    display:flex;
+    flex-direction:column;
+}
+.m_head{
+    height: 90px;
+    background-color: #B81B22;
+    color:#fff;
+    position:relative;
+}
+.m_head>b{
+    font-size: 70px;
+    position:absolute;
+    left: 15px;
+    top:-5px;
+    font-weight: normal;
+}
+.m_head>p{
+    font-size: 28px;
+    text-align: center;
+    line-height: 90px;
+}
+
+.xinxi{
+    flex:5;
+    background-image:url(./img/backg.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position:relative;
+}
+.xinxi>i{
+    display: block;
+    font-size: 40px;
+    width: 40px;
+    height: 40px;
+    color:#fff;
+    position:absolute;
+    right: 10px;
+    top: 10px;
+}
+.xinxi>img{
+    margin: 30px auto;
+    width: 140px;
+    height: 140px;
+    border-radius:50% ;
+}
+.xinxi>p{
+    text-align: center;
+    font-size: 22px;
+    color:#fff;
+    line-height: 0;
+}
+.xinxi .huiyuan{
+    margin:16px auto;
+    width: 90px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: #fff;
+    line-height: 30px;
+    color:#51504E;
+    font-size: 14px;
+    padding-left: 24px;
+    position:relative;
+}
+.xinxi .huiyuan p{
+    text-align: center;
+    color:#444243;
+    font-size: 16px;
+    line-height: 30px;
+}
+.xinxi .huiyuan p>i{
+    display: inline-block;
+    width: 18px;
+    height: 25px;
+    background-color: #58bc58;
+    color:#fff;
+    text-align: center;
+    position:absolute;
+    line-height: 25px;
+    top: 3px;
+    left: 2px;
+    border-radius: 50%;
+}
+.xinxi>ul{
+    color:#fff;
+    display:flex;
+    justify-content: space-around;
+}
+.xinxi>ul>li{
+    font-size: 24px;
+}
+
+.m_main{
+    height: 600px;
+    overflow-x: hidden;
+    background-color: #eee;
+}
+.m_main .order{
+    width:100%;
+    height: 200px;
+    margin: 20px auto;
+    background-color: #fff;
+}
+.m_main .order p{
+    height:50px;
+    padding: 0 10px; 
+    border-bottom: 2px solid #ccc;
+    font-size: 22px;
+    color:#080808;
+    line-height: 50px;
+    display:flex;
+    justify-content: space-between;
+}
+.m_main .clear {
+    font-size: 22px;
+    display:flex;
+    justify-content: space-around;
+}
+.m_main .clear .icon{
+    display: block;
+    width:60px;
+    height: 60px;
+    border: 3px solid #999999;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 55px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 28px;
+    color:#999999;
+}
+.m_main .server>ul{
+    color:#fff;
+    display:flex;
+    justify-content: space-between;
+    font-size: 25px;
+    background-color: #fff;
+}
+.m_main .server>ul>li{
+    width: 25%;
+    height: 150px;
+    font-size: 24px;
+    color:#080808;
+    text-align: center;
+}
+.m_main .server>ul>li .icon{
+    display: block;
+    width:100%;
+    height: 80px;
+    font-size: 66px;
+    margin: 15px 0;
+}
+.m_main .server .clear2{
+    justify-content: flex-start;
+}

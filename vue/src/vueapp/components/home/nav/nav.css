@@ -1,0 +1,27 @@
+.nnav{
+    height:85px;
+    background:#FFFFFF;
+}
+.nnav ul{
+    border-top:1px solid #999999;
+    display:flex;
+}
+.nnav ul li{
+    flex:1;
+    height:85px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+.nnav ul li a{
+    color:#A3A3A3;
+    display:block;
+    font-size:20px;
+    height:36px;
+    line-height:36px;
+}
+.nnav>ul>li>.fa{
+    font-size:50px;
+    display:block;
+}

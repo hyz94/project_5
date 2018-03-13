@@ -1,0 +1,10 @@
+.c_ul ul li{
+    height:56px;
+    text-align:center;
+    line-height:56px;
+    border-bottom:1px solid #fff;
+}
+.c_ul ul li a{
+    font-size:22px;
+    color:#000;
+}

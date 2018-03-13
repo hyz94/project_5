@@ -1,0 +1,14 @@
+.box{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+}
+.box>.home_cont{
+    flex:1;
+}
+.box>.home_nav{
+    height:85px;
+    line-height:85px;
+    text-align:center;
+    background:#ccc;
+}

@@ -27,7 +27,7 @@
         props:['config'],
         methods:{
             getCommon:function(id){
-                this.$router.push({path:'/detailPro?'+id});
+                this.$router.push({name:'detail',params:{proId:id}});
             }
         },
         mounted(){

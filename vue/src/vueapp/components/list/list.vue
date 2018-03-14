@@ -33,7 +33,6 @@
             return{ 
                 type:this.$route.params.type,
                 dataset:[]
-                
             }
         },
         methods:{
@@ -49,7 +48,6 @@
             let url = 'http://10.3.136.9:8080/insert1?smallType='+ this.type;
             console.log(url);
             http.get(url).then((res)=>{
-
               this.dataset = res.data.data;
               console.log(this.dataset)
                 

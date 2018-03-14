@@ -19,13 +19,13 @@
                             <input type='checkbox' class='selectPro' @click='selectPro(idx)' v-else :key="'b'+idx">
                         </div>
                         <div class='goods_img'>
-                            <img src='./img/clothes.jpg'>
+                            <img :src="obj.imgurl"/>
                         </div>
                         <div class='goods_infor'>
                             <h4>{{obj.name}}</h4>
-                            <span>颜色：{{obj.color}}</span>
-                            <span>尺码：{{obj.size}}</span>
-                            <p><i>特惠</i><span class='price'>￥{{obj.price}}</span></p>
+                            颜色：<span>{{obj.color}}</span>
+                            尺码：<span>{{obj.size}}</span>
+                            <p><i>特惠</i><span class='price'>{{obj.price}}</span></p>
                             <div class='qty_plus'>
                                 <a href='#' class='minus' >-</a>
                                 <span class='qty' >{{obj.qty}}</span>
@@ -69,6 +69,8 @@
         data(){
             return{
                 dataset:[],
+                dataset2:[],
+                dataset3:[],
                 show:false,
                 trs:[]
             }
@@ -80,7 +82,37 @@
                 this.dataset = res.data.data;
                 console.log(this.dataset);
 
+            });
+            http.get('http://10.3.136.9:8080/products').then((res)=>{
                 
+                this.dataset2 = res.data.data;
+                console.log(this.dataset2);
+                var array = [];
+                var array2 = [];
+                console.log(this.dataset)
+                for(var i=0;i<this.dataset.length;i++){
+                    array.push(this.dataset[i].id);
+                }
+                console.log(array);
+                for(var i=0;i<this.dataset2.length;i++){
+                    for(var j=0;j<array.length;j++){
+                        if(array[j] == this.dataset2[i].id){
+                            array2.push(this.dataset2[i]);
+                        }
+                    }
+                }
+                console.log(array2)
+                this.dataset3 = array2;
+                console.log(this.dataset[0])
+                this.dataset[0]['color'] = array2[0].color;
+                for(var i=0;i<array2.length;i++){
+                    this.dataset[i]['color'] = array2[i].color; 
+                    this.dataset[i]['size'] = array2[i].size; 
+                    this.dataset[i]['imgurl'] = array2[i].imgurl; 
+                    this.dataset[i]['name'] = array2[i].name;
+
+                }
+                console.log(this.dataset)
             })
         },
         methods:{

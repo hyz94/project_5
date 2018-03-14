@@ -14,7 +14,7 @@
         data(){
             return{
                 config:{
-                    api:"http://10.3.136.9:8080/products",
+                    api:"http://10.3.136.9:8080/getCarGoods",
                     params:{page:1,limit:5},
                     cols:['id','name','price','imgurl','color','size','qty']
                 }

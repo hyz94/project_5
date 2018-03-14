@@ -5,6 +5,7 @@ const apiResult = require('../utils/apiResult')
 module.exports = {
     register(app){
         app.post('/login', (req, res) => {
+            console.log(req.body)
             let username = req.body.username;
             let password = req.body.password;
             db.mongodb.select('user',{username,password}).then((result) => {

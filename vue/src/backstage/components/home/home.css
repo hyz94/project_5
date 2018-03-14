@@ -1,6 +1,5 @@
 *{margin: 0; padding: 0;}
-.header{width: 100%; height: 48px; border: solid 1px;}
-
-.body{position: fixed; top: 48px; left: 0; right: 0; bottom: 0; border:  solid 1px;}
-.body>.nav{position: absolute; left: 0; width: 200px; border-right: solid 1px; top: 0; bottom: 0;}
-.body>.container{position: absolute; left: 200px; top: 0; right: 0; bottom: 0;}
+.header{width: 100%; height: 80px; border: solid 1px #ccc;}
+.body{ border:  solid 1px #ccc;overflow: hidden;}
+.body>.nav{ height:10050px;width: 200px; border-right: solid 1px #ccc;float:left; }
+.body>.container{ height:10050px;float:left;max-width:1050px;}

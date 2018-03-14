@@ -18,6 +18,7 @@
 			</form>
 		</div>
 		<div class="copyright">2018 © the fifth group by www.fifth_group.com</div>
+        <spinner v-if="spinnerShow"></spinner> 
 	</div>
 </template>
 
@@ -25,25 +26,31 @@
     import './login.scss'
     import http from '../../utils/httpclient.js'
     import router from '../../router/router.js'
-
+    import spinner from '../spinner/spinner.vue'
     export default {
         data(){
             return {
                 username: '',
                 pwd: '',
+                spinnerShow: false,
             }
+        },
+        components: {
+            spinner
         },
         methods: {
             login(){
+                this.spinnerShow = true;
                 http.post('login', {username: this.username, password: this.pwd}).then((res) => {
                     console.log(res)
                     if(res.data.status){
                         window.localStorage.setItem('dktoken', res.data.data);
                         router.push({name: 'home'});
+                        this.spinner = false;
                     }
                 })
             }
-        }
-        
-    }    
+        },
+       
+    }     
 </script>

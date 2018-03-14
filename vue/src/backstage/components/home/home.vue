@@ -1,11 +1,11 @@
 <template>
-    <div>
+    <div class="guike">
         <div class="header">
-            <Header></Header>
+            <yzheader></yzheader>
         </div>
         <div class="body">
             <div class="nav">
-                <Nav></Nav>
+                <yznav></yznav>
             </div>
             <div class="container">
                 <router-view></router-view>
@@ -16,12 +16,12 @@
 </template>
 <script>
     import './home.css'
-    import Header from './header/header.vue'
-    import Nav from './nav/nav.vue'
+    import yzheader from './header/header.vue'
+    import yznav from './nav/nav.vue'
     export default {
         components: {
-            Header,
-            Nav,
+            yzheader,
+            yznav,
         }
     }
 </script>

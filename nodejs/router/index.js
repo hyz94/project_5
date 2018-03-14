@@ -5,7 +5,7 @@ const path = require('path');
 const bp = require('body-parser');
 
 const userRouter = require('./users');
-
+const productsRouter = require('./products')
 
 app.all('*', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -27,6 +27,7 @@ module.exports = {
     start(_port){
 
         userRouter.register(app);
+        productsRouter.register(app);
 
         http.listen(_port || 8080);
     }

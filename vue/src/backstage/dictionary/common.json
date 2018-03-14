@@ -1,0 +1,26 @@
+{
+    "en": {
+        "id": "ID",
+        "name": "Name",
+        "price": "Price",
+        "imgurl": "Imgurl",
+        "color": "Color",
+        "size": "Size",
+        "qty": "QTy",
+        "mainType": "MainType",
+        "smallType": "SmallType",
+        "compile": "Compile"
+    },
+    "cn": {
+        "id": "ID",
+        "name": "名称",
+        "price": "价格",
+        "imgurl": "图片路径",
+        "color": "颜色",
+        "size": "大小",
+        "qty": "数量",
+        "mainType": "大分类",
+        "smallType": "小分类",
+        "compile": "编辑"
+    }
+}

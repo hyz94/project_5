@@ -24,6 +24,8 @@ import Login from '../components/login/log.vue'
 import Zhuce from '../components/zhuce/zhuce.vue'
 
 
+
+
 const router = new VueRouter({
     routes:[
         {path:'/',component:Home,children:[
@@ -46,6 +48,7 @@ const router = new VueRouter({
             ]},
             {path:'cart',component:Cart},
             {path:'mine',component:Mind},
+           
             {
                 path:'/detailPro',name:'detail',component:DetailComponent
             },

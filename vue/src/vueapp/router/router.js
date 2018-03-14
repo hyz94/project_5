@@ -47,7 +47,7 @@ const router = new VueRouter({
                     component:Req4
                 }
             ]},
-            {path:'cart',component:Cart},
+            {path:'cart',name:'cart',component:Cart},
             {path:'mine',component:Mind},
             {path:'index',component:idx}
             

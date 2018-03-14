@@ -51,11 +51,11 @@ const router = new VueRouter({
             ]},
             {path:'cart',name:'cart',component:Cart},
             {path:'mine',component:Mind},
-<<<<<<< HEAD
-            {path:'list',name:'list',component:list}
-=======
-            {path:'index',component:idx}
->>>>>>> 7cbe11bf8c3b7d47873f35ed3d83f5454a66734b
+
+            {path:'list',name:'list',component:list},
+
+            {path:'index',component:idx},
+
             
         ]},
         {

@@ -12,6 +12,7 @@
                 <img :src="dataset.imgurl" width="512px" heigth="512px"    />
             </div>
             <div class="detail_info">
+            <div></div>
               
                     <p class="detail_info_tit">
                         <span>{{dataset.name}}</span>

@@ -46,7 +46,7 @@
                 <ul>
                     <li>
                         <span>需支付：￥</span>
-                        <span>总额：￥<i>优惠：￥</i></span>
+                        <span>总额：￥</span>
                     </li>
                     <li><a>去结算</a></li>
                 </ul>

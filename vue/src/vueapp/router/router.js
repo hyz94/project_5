@@ -46,16 +46,17 @@ const router = new VueRouter({
             ]},
             {path:'cart',component:Cart},
             {path:'mine',component:Mind},
-            {
-                path:'/detailPro',name:'detail',component:DetailComponent
-            },
-            {
-                path:'/login',component:Login
-            },
-            {
-                path:'/zhuce',component:Zhuce
-            }
-        ]}
+            
+        ]},
+        {
+            path:'/login',component:Login
+        },
+        {
+            path:'/zhuce',component:Zhuce
+        },
+        {
+             path:'/detailPro',name:'detail',component:DetailComponent
+        },
     ]
 })
 

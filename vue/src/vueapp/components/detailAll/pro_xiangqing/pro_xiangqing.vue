@@ -2,16 +2,23 @@
   <div class="mote_bianjie">
 
     <img src="../../../img/mote-biejian.jpg" width="640px" />
-    <img src="../../../img/dxcs1.jpg"  width="640px"  />
-    <img src="../../../img/dxcs2.jpg"  width="640px"  />
-    <img src="../../../img/dxcs3.jpg"  width="640px"  />
-
+    <img :src="dataset.imgurl"  width="640px"  />
+    <img :src="dataset.imgurl"  width="640px"  />
+    <img :src="dataset.imgurl"  width="640px"  />
+ 
+ 
 </div>
 </template>
 
 <script>
     
 export default{
+    data:function(){
+        return{
+            
 
+        }
+    },
+    props:['dataset'],
 }
 </script>

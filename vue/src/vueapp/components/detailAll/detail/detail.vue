@@ -9,13 +9,13 @@
         <div class="detail_content">
             
             <div class="detail_slider">
-                <img src="../../../img/dxcs1.jpg" width="512px" heigth="512px"    />
+                <img :src="dataset.imgurl" width="512px" heigth="512px"    />
             </div>
             <div class="detail_info">
               
                     <p class="detail_info_tit">
-                        <span>商品介绍</span>
-                        <span class="detail_price">￥999元</span>
+                        <span>{{dataset.name}}</span>
+                        <span class="detail_price">￥{{dataset.price}}元</span>
 
                     </p>
                     <p>充100送100，点击充值</p>
@@ -59,7 +59,7 @@
                     <li v-for="(key,index) in detail_lists" :class="{active_li:changeLi == index}" @click="toggleLi(index)">{{key}}</li>
                 </ul>
                 <div class="bianjie3"></div>
-                <curLast :is = "curLast"></curLast>
+                <curLast :is = "curLast" :dataset="dataset"></curLast>
 
         </div>
         
@@ -95,7 +95,7 @@
             return {
                 dataset:[],
                 show: false,
-                id:'',
+                proId:this.$route.params.proId,
                 qty:1,
                 buycarQty:0,
                 changeBorder:0,
@@ -130,16 +130,14 @@
            },
            goback(){
                 router.push("/bwear");
-           }
-         
+           },
+
            
         },
         mounted: function() {
-            http.get("http://10.3.136.9:8080/products").then((res)=>{
-                console.log(res);
-
-                this.dataset = res.data;
-
+            http.get("http://10.3.136.9:8080/insert1?id="+ this.proId+"",).then((res)=>{
+              this.dataset = res.data.data[0];
+              // console.log(this.dataset.imgurl)
                 
             })
 

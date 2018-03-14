@@ -12,6 +12,7 @@
                 <img :src="dataset.imgurl" width="512px" heigth="512px"    />
             </div>
             <div class="detail_info">
+            <div></div>
               
                     <p class="detail_info_tit">
                         <span>{{dataset.name}}</span>
@@ -63,14 +64,14 @@
 
         </div>
         
-
+        <div class="zhezhao" v-if="showCenter"><div  class="plaCenter">请选择颜色和尺寸</div></div>
 
         <div class="detail_nav">
-            <button class="btnBuycar">
+            <button class="btnBuycar" @click="gotoBuycar">
                 <i class="fa fa-shopping-cart"></i>
                 <div class="pro_num">{{buycarQty}}</div>
             </button>
-            <button class="btnAddbuycar" @click="buycarQty += qty" >加入购物车</button>
+            <button class="btnAddbuycar" @click="btnAddbuycar" >加入购物车</button>
         </div>
 
 
@@ -95,6 +96,7 @@
             return {
                 dataset:[],
                 show: false,
+                showCenter:false,
                 proId:this.$route.params.proId,
                 qty:1,
                 buycarQty:0,
@@ -131,6 +133,22 @@
            goback(){
                 router.push("/bwear");
            },
+           gotoBuycar(){
+                router.push('cart');
+           },
+           btnAddbuycar(){
+                if(!this.show){
+                    
+                    this.show = true ;
+                    this.showCenter = true;
+                    setTimeout(()=>{this.showCenter =false}, 2000)
+                   
+
+                }else{
+                    this.buycarQty += this.qty;
+                }
+           }
+
 
            
         },

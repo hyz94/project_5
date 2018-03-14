@@ -25,15 +25,16 @@ import DetailComponent  from '../components/detailAll/detail/detail.vue'
 import Login from '../components/login/log.vue'
 import Zhuce from '../components/zhuce/zhuce.vue'
 // import config from '../components/cart/config.vue'
+import idx from '../components/index/index.vue'
 
 
 
 const router = new VueRouter({
     routes:[
-        {path:'/',component:Home,children:[
+        {path:'/',component:Home,redirect:'index',children:[
             {path:'classify',component:Class,redirect:'/bwear',children:[
                 {   path:'/bwear',
-                    component:Req1,
+                    component:Req1
                 },
                 {
                     path:'/gwear',
@@ -48,9 +49,13 @@ const router = new VueRouter({
                     component:Req4
                 }
             ]},
-            {path:'cart',component:Cart},
+            {path:'cart',name:'cart',component:Cart},
             {path:'mine',component:Mind},
+<<<<<<< HEAD
             {path:'list',name:'list',component:list}
+=======
+            {path:'index',component:idx}
+>>>>>>> 7cbe11bf8c3b7d47873f35ed3d83f5454a66734b
             
         ]},
         {

@@ -6,6 +6,7 @@ const bp = require('body-parser');
 
 const userRouter = require('./users');
 const productsRouter = require('./products')
+const vueUsersRouter = require('./vueusers')
 
 app.all('*', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -28,6 +29,7 @@ module.exports = {
 
         userRouter.register(app);
         productsRouter.register(app);
+        vueUsersRouter.register(app);
 
         http.listen(_port || 8080);
     }

@@ -3,7 +3,7 @@
         <ul>
             <li>
                 <i class="fa fa-home"></i>
-                <router-link to="/">凡客</router-link>
+                <router-link to="/index">凡客</router-link>
             </li>
             <li>
                 <i class="fa fa-th-large"></i>

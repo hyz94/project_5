@@ -98,17 +98,17 @@
 }
 .m_main .order{
     width:100%;
-    height: 200px;
+    height: 215px;
     margin: 20px auto;
     background-color: #fff;
 }
 .m_main .order p{
-    height:50px;
+    height:70px;
     padding: 0 10px; 
     border-bottom: 2px solid #ccc;
-    font-size: 22px;
+    font-size: 26px;
     color:#080808;
-    line-height: 50px;
+    line-height: 70px;
     display:flex;
     justify-content: space-between;
 }
@@ -143,6 +143,7 @@
     font-size: 24px;
     color:#080808;
     text-align: center;
+    border: 1px solid #ccc;
 }
 .m_main .server>ul>li .icon{
     display: block;

@@ -4,7 +4,7 @@
     flex-direction:column;
 }
 .box>.home_cont{
-    flex:1;
+    flex:1;overflow-x: hidden;
 }
 .box>.home_nav{
     height:85px;

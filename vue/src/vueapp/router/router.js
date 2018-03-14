@@ -10,7 +10,7 @@ Vue.use(VueRouter)
 import App from '../components/app/app.vue'
 import Home from '../components/home/home.vue'
 import Class from '../components/classify/classify.vue'
-import Cart from '../components/cart/cart.vue'
+import Cart from '../components/cart/config.vue'
 import Mind from '../components/mine/mine.vue'
 
 import Req1 from '../components/classify/req/req1.vue'
@@ -22,7 +22,7 @@ import DetailComponent  from '../components/detailAll/detail/detail.vue'
 
 import Login from '../components/login/log.vue'
 import Zhuce from '../components/zhuce/zhuce.vue'
-
+// import config from '../components/cart/config.vue'
 
 
 
@@ -31,7 +31,7 @@ const router = new VueRouter({
         {path:'/',component:Home,children:[
             {path:'classify',component:Class,redirect:'/bwear',children:[
                 {   path:'/bwear',
-                    component:Req1,
+                    component:Req1
                 },
                 {
                     path:'/gwear',
@@ -48,17 +48,17 @@ const router = new VueRouter({
             ]},
             {path:'cart',component:Cart},
             {path:'mine',component:Mind},
-           
-            {
-                path:'/detailPro',name:'detail',component:DetailComponent
-            },
-            {
-                path:'/login',component:Login
-            },
-            {
-                path:'/zhuce',component:Zhuce
-            }
-        ]}
+            
+        ]},
+        {
+            path:'/login',component:Login
+        },
+        {
+            path:'/zhuce',component:Zhuce
+        },
+        {
+             path:'/detailPro',name:'detail',component:DetailComponent
+        },
     ]
 })
 

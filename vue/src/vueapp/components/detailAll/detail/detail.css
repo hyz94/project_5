@@ -64,15 +64,15 @@
     border-top: 2px solid #999999;display:flex;
 }
 .detail_nav .btnBuycar{
-    flex:1;background-color: #fff;
-}
-.fa-shopping-cart{
-    font-size: 50px;
+    flex:1;background-color: #fff;position:relative;
 }
 
+.detail_nav .btnBuycar .fa-shopping-cart{
+    position:absolute;left: 120px;top: 20px;font-size: 80px;
+}
 .detail_nav .btnBuycar .pro_num{
-    margin:0 auto;
-    width: 40px;height: 40px;background-color: #b81c22;color:#fff;
+    width: 40px;height: 40px;color:#fff;font-size: 25px;border-radius: 50%;position:absolute;
+    left: 170px;top: 2px;background-color: #b81c22;
 }
 
 .detail_nav .btnAddbuycar{

@@ -30,21 +30,15 @@
             <input type="text" class="form-control" placeholder="请输入商品小的类别" id="smallType" v-model="smallType">
             <input type="button" class="btn btn-success" value="添加" @click="axiosAdd">
         </div>
-        <!-- <div>
-            <div v-for="(val, key) in dataset[0]" v-if="addShow" class="toOperate">
-                <label  :for="key" v-if="config.cols.indexOf(key) > -1">{{key}}</label>
-                <input type="text" :class="key" v-if="config.cols.indexOf(key) > -1" :placeholder="val" v-model="key">
-            </div>
-            <input type="button" value="添加" @click="axiosAdd">
-        </div>
-         -->
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th v-for="(val, key) in dataset[0]"  v-if="config.cols.indexOf(key) > -1">
-                        {{key}}
+                        {{dictionary[$store.state.header.lanType][key] || key}}
                     </th>
-                    <th>编辑</th>
+                    <th>
+                        {{$store.state.header.lanType == 'en' ? 'Compile' : '编辑'}}                       
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -73,11 +67,12 @@
                 <label  :for="key" v-if="config.cols.indexOf(key) > -1">{{key}}</label>
                 <input type="text" :id="key"  v-if="config.cols.indexOf(key) > -1" :value="val" ref="compileRef"/>
             </div>
-            <input type="button" value="确认" @click="compileConfirm">
-            <input type="button" value="退出" @click="compileClose" >
+            <input type="button" class="btn btn-success ml-5 mr-5 mt-2" style="line-height:1.0" value="确认" @click="compileConfirm">
+            <input type="button" class="btn btn-info ml-4 mt-2" value="退出" @click="compileClose" >
             <span class="compileDel" @click="compileClose">&times;</span>
         </div>
         <spinner v-if="spinnerShow"></spinner> 
+        <div class="zhe" v-if="zhe"></div>
     </div>
 </template>
 <script>
@@ -85,6 +80,7 @@
     import './datagrid.css'
     import './datagrid.js'
     import http from '../../utils/httpclient'
+    import common from '../../common/common.js'
     export default {
         data(){
             return {
@@ -112,6 +108,8 @@
                 productsPading: '',
                 insertPading: '',
                 idxCompile: '',
+                dictionary: {},
+                zhe:false,
             }
             
         },
@@ -123,13 +121,15 @@
             //http://10.3.136.9:8080/products
             this.spinnerShow = true;
             http.post(this.config.api,{page:1,limit:10}).then((res) => {
-                console.log('res',res)
                 this.dataset = res.data.data;
                 this.pageAll = Math.ceil(res.data.qty/this.limit);
                 //判断进行哪个请求下的分页
                 this.insertPading = '',
                 this.productsPading = 'productsPading',
                 this.spinnerShow = false;
+            });
+            http.get('http://localhost:88/src/backstage/dictionary/common.json').then((res) => {
+                this.dictionary = res.data;
             })
         },
         methods: {
@@ -149,7 +149,6 @@
                 let parmas1 = this.insert1;
                 let parmas2 = this.insert2;                
                 http.post('http://10.3.136.9:8080/insert1',{parmas1: parmas1,parmas2: parmas2,page:1,limit:10}).then((res) => {
-                    console.log('res1',res)
                     this.dataset = res.data.data;
                     this.pageAll = Math.ceil(res.data.qty/this.limit);
                     //判断进行哪个请求下的分页
@@ -163,7 +162,6 @@
                 this.spinnerShow = true;
                 http.post('http://10.3.136.9:8080/axiosAdd',{parmas1: this.id,parmas2: this.name,parmas3: this.price,parmas4: this.imgurl,parmas5: this.color,parmas6: this.size,parmas7: this.qty,parmas8: this.mainType,parmas9: this.smallType}).then((res) => {
                     http.post(this.config.api,{page:1,limit:10}).then((res) => {
-                        console.log('res',res)
                         this.dataset = res.data.data;
                         this.pageAll = Math.ceil(res.data.qty/this.limit);
                         this.spinnerShow = false;
@@ -172,40 +170,35 @@
             },
             //删除数据库的某个商品
             axiosDel({id: objIdx}){
-                this.spinnerShow = true;
-                console.log({id: objIdx})
-                http.post('http://10.3.136.9:8080/axiosDel',{id: objIdx}).then((res) => {
-                    let page = objIdx;
-                    if(page%10 == 1){
-                        page = Math.floor(objIdx/10);
-                    } else {
-                        page = Math.ceil(objIdx/10);
-                    }
-                    
-                    console.log(res);
-                    http.post(this.config.api,{page:page,limit:10}).then((res) => {
-                        console.log('res',res)
-                        this.dataset = res.data.data;
-                        this.pageAll = Math.ceil(res.data.qty/this.limit);
-                        this.spinnerShow = false;
+                if(confirm('确认删除已选择数据吗?')){
+                    this.spinnerShow = true;
+                    http.post('http://10.3.136.9:8080/axiosDel',{id: objIdx}).then((res) => {
+                        let page = objIdx;
+                        if(page%10 == 1){
+                            page = Math.floor(objIdx/10);
+                        } else {
+                            page = Math.ceil(objIdx/10);
+                        }
+                        http.post(this.config.api,{page:page,limit:10}).then((res) => {
+                            this.dataset = res.data.data;
+                            this.pageAll = Math.ceil(res.data.qty/this.limit);
+                            this.spinnerShow = false;
+                        })
                     })
-                })
+                }
+                
             },
             //实现分页功能
             paging(val){
                 this.spinnerShow = true;
                 let page = val;
-                console.log('p',this.productsPading);
-                console.log('s',this.insertPading);
                 if(this.productsPading){
                     http.post(this.config.api,{page:page,limit:this.limit}).then((res) => {
-                        console.log('res',res)
                         this.dataset = res.data.data;
                         this.spinnerShow = false;
                     });
                 } else if(this.insertPading){
                     http.post('http://10.3.136.9:8080/insert1',{parmas1: this.insert1,parmas2: this.insert2,page:page,limit:this.limit}).then((res) => {
-                        console.log('res',res)
                         this.dataset = res.data.data;
                         this.spinnerShow = false;
                     });
@@ -215,56 +208,51 @@
             //商品编辑功能
             compile(idx,objIdx){
                 this.compileShow = true;
+                this.zhe = true;
                 this.compileIdx = idx;
                 this.idxCompile = objIdx;
             },
             //关闭商品编辑框
             compileClose(){
                 this.compileShow = false;
+                this.zhe = false;
             },
             //关闭商品编辑框，并修改商品信息
             compileConfirm(){
-                this.compileShow = false;
-                console.log(this.idxCompile)
-                console.log(this.compileIdx)
-                //获取原数据
-                console.log(this.dataset[this.compileIdx])
-                //转化为数组               
-                let array = [];
-                for(var attr in this.dataset[this.compileIdx]){
-                    array.push(this.dataset[this.compileIdx][attr])
-                }
-                console.log(array[0])
-                //获取新数据
-                console.log(array.length)
-                console.log(this.$refs.compileRef[0].id)
-                let arrayRefName = [];
-                let arrayRef = [];
-                for(var i=0;i<array.length-1;i++){
-                    let j = i + 1;
-                    if(array[j] != this.$refs.compileRef[i].value){
-                        arrayRef.push(this.$refs.compileRef[i].value);
-                        arrayRefName.push(this.$refs.compileRef[i].id);
-
+                if(confirm('确认编辑此商品信息吗?')){
+                    this.compileShow = false;
+                    this.zhe = false;
+                    //获取原数据
+                    console.log(this.dataset[this.compileIdx])
+                    //转化为数组               
+                    let array = [];
+                    for(var attr in this.dataset[this.compileIdx]){
+                        array.push(this.dataset[this.compileIdx][attr])
                     }
-                    
-                }
-                console.log(arrayRef);
-                console.log(arrayRefName);
+                    //获取新数据
+                    let arrayRefName = [];
+                    let arrayRef = [];
+                    for(var i=0;i<array.length-1;i++){
+                        let j = i + 1;
+                        if(array[j] != this.$refs.compileRef[i].value){
+                            arrayRef.push(this.$refs.compileRef[i].value);
+                            arrayRefName.push(this.$refs.compileRef[i].id);
 
-                let objRef = {};
-                objRef.id = this.dataset[this.compileIdx]["id"];
-                for(var i=0;i<arrayRef.length;i++){
-                    objRef[arrayRefName[i]] = arrayRef[i];
-                    this.dataset[this.compileIdx][arrayRefName[i]] = arrayRef[i];
+                        }
+                        
+                    }
+                    let objRef = {};
+                    objRef.id = this.dataset[this.compileIdx]["id"];
+                    for(var i=0;i<arrayRef.length;i++){
+                        objRef[arrayRefName[i]] = arrayRef[i];
+                        this.dataset[this.compileIdx][arrayRefName[i]] = arrayRef[i];
+                    }
+                    http.post('http://10.3.136.9:8080/axiosUpdata',objRef).then((res) => {
+                        console.log('res',res)
+                        // this.dataset = res.data.data;
+                        // this.spinnerShow = false;
+                    });
                 }
-
-                console.log(objRef);
-                http.post('http://10.3.136.9:8080/axiosUpdata',objRef).then((res) => {
-                    console.log('res',res)
-                    // this.dataset = res.data.data;
-                    // this.spinnerShow = false;
-                });
             }
         }
     }

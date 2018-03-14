@@ -5,7 +5,7 @@ import VueRouter from 'vue-router';
 import LoginComponent from '../components/login/login.vue';
 import HomeComponent from '../components/home/home.vue';
 import ProductsComponent from '../components/products/products.vue'
-
+import VueUsersComponent from '../components/vueUsers/vueUsers.vue'
 
 
 Vue.use(VueRouter);
@@ -28,6 +28,14 @@ const router = new VueRouter({
                     name: 'products',
                     components:{
                         default: ProductsComponent,
+
+                    }
+                },
+                {
+                    path: '/vueUsers',
+                    name: 'vueUsers',
+                    components:{
+                        default: VueUsersComponent,
 
                     }
                 }

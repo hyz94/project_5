@@ -8,7 +8,7 @@ table>tbody>tr{line-height: 2.0;}
 .toOperate{margin:10px 0px;}
 label{width:80px;text-align: right;}
 .qtylist{float: right;}
-.compile{width:300px;height:400px;border:1px solid #ccc;background: #eee;;position: fixed;top:50%;left:50%;margin-top:-200px;margin-left:-50px;}
+.compile{z-index: 100;width:300px;height:400px;border:1px solid #ccc;background: #f90;position: fixed;top:50%;left:50%;margin-top:-200px;margin-left:-150px;}
 .compile h5{text-align: center;line-height: 30px;}
 .compile .compileDel{display: block;position: absolute;top:5px;right:5px;padding:1px 5px;}
 .compile .compileDel:hover{background: red;}
@@ -18,3 +18,4 @@ label{width:80px;text-align: right;}
 .form-control{display: inline-block;width:200px;height:40px;}
 .btn{vertical-align:bottom;}
 .btn-info,.btn-danger{line-height: 1.0;margin-right:5px;}
+.zhe{background: #ccc;opacity: 0.8;position: absolute;top:0px;left:0px;right:0px;bottom:-10000px;}

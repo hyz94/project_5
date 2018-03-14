@@ -1,6 +1,6 @@
 <template>
     <div>
-        <plub :config="config"></plub>
+        <plub :config='config'></plub>
     </div>
 </template>
 <script>

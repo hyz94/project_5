@@ -1,27 +1,37 @@
 <template>
     <div>
         <ul class="plub">
-            <li v-for="(obj,idx) in dataset">
+            <li v-for="(obj,idx) in dataset" @click="getCommon(obj.id)">
                 <img :src="obj.imgurl"/>
                 <span>{{obj.smallType}}</span>
             </li>
         </ul>
+        <spinner v-if="show"></spinner>
     </div>
 </template>
 <script>
     import './plub.css'
     import axios from 'axios'
+    import spinner from '../spinner/spinner.vue'
     export default{
         data(){
             return{
                 arr:[],
                 dataset:[],
-                del:[],
-                img:''
+                show:false
             }
         },
+        components:{
+            spinner
+        },
         props:['config'],
+        methods:{
+            getCommon:function(id){
+                this.$router.push({path:'/detailPro?'+id});
+            }
+        },
         mounted(){
+            this.show = true;
             axios.get(this.config.api,{params:this.config.params || {}}).then((res)=>{
                 for(var i=0;i<res.data.data.length;i++){
                     if(res.data.data[i].mainType == this.config.cols){
@@ -46,7 +56,7 @@
                 }          
                 this.dataset = arrayUnique2(this.arr, "smallType");
                 console.log(this.dataset);
-                
+                this.show = false;
 
             })
         }

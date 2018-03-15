@@ -1,0 +1,34 @@
+
+{
+    "_id" : ObjectId("5aa9ded060b6f31faf1fd456"),
+    "id" : "001",
+    "username" : "dzy",
+    "password" : "123"
+}
+{
+    "_id" : ObjectId("5aa9e1a00a441a1ed0a6a7da"),
+    "id" : "002",
+    "username" : "hyz",
+    "password" : "123456"
+}
+{
+    "_id" : ObjectId("5aa9e58ff5bd201f24a7ed5b"),
+    "id" : "003",
+    "username" : "hyz",
+    "password" : "122"
+}
+{
+    "_id" : ObjectId("5aaa03b941b4df1d109a07a8"),
+    "username" : "qwe",
+    "password" : "123456"
+}
+{
+    "_id" : ObjectId("5aaa139341b4df1d109a07b3"),
+    "username" : "ypc",
+    "password" : "123456"
+}
+{
+    "_id" : ObjectId("5aaa16ce41b4df1d109a07bc"),
+    "username" : "hyz",
+    "password" : "22222"
+}

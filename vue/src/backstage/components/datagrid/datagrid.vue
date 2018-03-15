@@ -311,7 +311,7 @@
             },
             next(){
                 this.spinnerShow = true;
-                if(this.page<this.dataset.length){
+                if(this.page<=this.dataset.length){
                     this.page ++;
                 }
                 if(this.productsPading){

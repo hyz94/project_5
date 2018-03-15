@@ -1,0 +1,11 @@
+//只传id跟qty，其他参数去products查找
+{
+    "_id" : ObjectId("5aa9217d6ceb7f2568a9d3e5"),
+    "id" : "087",
+    "qty" : "2"
+}
+{
+    "_id" : ObjectId("5aa9221f6ceb7f2568a9d3e6"),
+    "id" : "010",
+    "qty" : "4"
+}

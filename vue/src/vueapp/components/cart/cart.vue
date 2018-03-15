@@ -126,14 +126,17 @@
                         }
                     }
                     this.curData3 = this.curData;
-                    console.log(this.curData3)
+                    
                     //计算总价、数量
                     for(var i=0;i<this.curData3.length;i++){
-                        this.price += this.curData3[i].price;
+
+                        this.price += this.curData3[i].price*this.curData3[i].qty;
                         this.totalQty += (this.curData3[i].qty)*1;
+
                     }
                     //console.log(this.price)
                     //console.log(this.totalQty)
+                    
 
                 })
                 
@@ -235,16 +238,19 @@
                                         }
                                     }
                                 }
+
                                 this.curData3 = this.curData;
                                 console.log(this.curData3)
                                 //计算总价、数量
                                 for(var i=0;i<this.curData3.length;i++){
-                                    this.price += this.curData3[i].price;
+                                    this.price = 0;
+                                    this.price += this.curData3[i].price*this.curData3[i].qty;
                                     this.totalQty += (this.curData3[i].qty)*1;
                                 }
                                 //console.log(this.price)
                                 //console.log(this.totalQty)
-                                if(this.curDate3.length==0){
+                                
+                                if(this.curData3.length==0){
                                     this.price=0;
                                     this.totalQty=0;
                                 }

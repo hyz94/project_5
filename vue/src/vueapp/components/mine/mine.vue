@@ -7,7 +7,7 @@
         <div class="xinxi">
             <i class="ico iconfont icon-shezhi"></i>
             <img src="./img/pu.jpg"/>
-            <p>username</p>
+            <p v-model="username" ref="username"></p>
             <div class="huiyuan">
                 <p><i>N</i>普通会员</p>
             </div>
@@ -115,7 +115,21 @@
 <script>
     import '../../common/common.css'
     import './mine.css'
+    import router from '../../router/router.js'
 
-    export default {}
+
+    export default {
+        data(){
+            return {
+                username: ''
+            }
+        },
+        mounted(){
+            this.$refs.username.innerText=sessionStorage.getItem("username");
+            if(sessionStorage.getItem("username")==undefined){
+                router.push('login')
+            }
+        }
+    }
 
 </script>

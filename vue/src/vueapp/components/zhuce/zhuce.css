@@ -10,11 +10,12 @@
     color:#fff;
     position:relative;
 }
-.z_head b{
+.z_head #b{
     font-size: 80px;
     position:absolute;
     left: 20px;
     top:-10px;
+    color:#fff;
     font-weight: normal;
 }
 .z_head p{

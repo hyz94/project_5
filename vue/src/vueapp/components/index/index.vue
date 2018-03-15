@@ -42,36 +42,36 @@
         <main id="v_main">
             <div class="product man_wear">
                 <div class="product_top man_wear_top">
-                    <a href="">
+                    <router-link to="/classify">
                         <img src="../../img/man_wear.jpg" alt="" />
-                    </a>
+                    </router-link>
                 </div>
                 <Area :config="configManC">
                 </Area>
             </div>
             <div class="woman_wear product">
                 <div class="product_top woman_wear_top">
-                    <a href="">
+                    <router-link to="/classify">
                         <img src="../../img/women_wear.jpg" alt="" />
-                    </a>
+                    </router-link>
                 </div>
                 <Area :config="configWomanC">
                 </Area>
             </div>
             <div class="product man_shoes">
                 <div class="product_top man_shoes_top">
-                    <a href="">
+                    <router-link to="/classify">
                         <img src="../../img/man_shoes.jpg" alt="" />
-                    </a>
+                    </router-link>
                 </div>
                 <Area :config="configManS">
                 </Area>
             </div>
             <div class="product woman_shoes">
                 <div class="product_top woman_shoes_top">
-                    <a href="">
+                    <router-link to="/classify">
                         <img src="../../img/man_shoes.jpg" alt="" />
-                    </a>
+                    </router-link>
                 </div>
                 <Area :config="configWomanS">
                 </Area>

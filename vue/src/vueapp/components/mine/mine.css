@@ -50,13 +50,14 @@
 }
 .xinxi>p{
     text-align: center;
-    font-size: 22px;
+    font-size: 26px;
     color:#fff;
     line-height: 0;
+    font-weight: bold;
 }
 .xinxi .huiyuan{
-    margin:16px auto;
-    width: 90px;
+    margin:26px auto;
+    width: 115px;
     height: 30px;
     border-radius: 15px;
     background-color: #fff;
@@ -68,7 +69,8 @@
 }
 .xinxi .huiyuan p{
     text-align: center;
-    color:#444243;
+    color:#000;
+    font-weight: bold;
     font-size: 16px;
     line-height: 30px;
 }
@@ -82,7 +84,7 @@
     position:absolute;
     line-height: 25px;
     top: 3px;
-    left: 2px;
+    left: 10px;
     border-radius: 50%;
 }
 .xinxi>ul{
@@ -119,6 +121,9 @@
     font-size: 22px;
     display:flex;
     justify-content: space-around;
+}
+.m_main .clear span{
+    color:#999999;
 }
 .m_main .clear .icon{
     display: block;

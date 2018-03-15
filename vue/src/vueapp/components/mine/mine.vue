@@ -9,7 +9,7 @@
             <img src="./img/pu.jpg"/>
             <p v-model="username" ref="username"></p>
             <div class="huiyuan">
-                <p><i>N</i>普通会员</p>
+                <p><i>N</i>普 通 会 员</p>
             </div>
             <ul>
                 <li>积分:0.0</li> 
@@ -24,22 +24,22 @@
                     <span>></span>
                 </p> 
                 <ul class="clear"> 
-                    <li class="li">
+                    <router-link to="/cart"><li class="li">
                         <span class="icon">></span>
                         <span>进行中</span>
-                    </li> 
-                    <li class="li">
+                    </li> </router-link>
+                    <router-link to="/cart"><li class="li">
                         <span class="icon">&radic;</span>
                         <span>已完成</span>
-                    </li> 
-                    <li class="li">
+                    </li> </router-link>
+                    <router-link to="/cart"><li class="li">
                         <span class="icon ico iconfont icon-pingjia"></span>
                         <span>待评价</span>
-                    </li> 
-                    <li class="li">
+                    </li> </router-link>
+                    <router-link to="/cart"><li class="li">
                         <span class="icon">x</span>
                         <span>无效</span>
-                    </li> 
+                    </li> </router-link>
                 </ul> 
             </div>
             <div class="server">
@@ -126,9 +126,14 @@
         },
         methods: {
             out(){
-                alert('确定要退出登录吗?');
-                router.push('login');
-                sessionStorage.removeItem("username");
+                var con;
+                con=confirm("确定要退出登录吗?"); //在页面上弹出对话框
+                if(con==true){
+                    router.push('login');
+                    sessionStorage.removeItem("username");
+                }else {
+                    router.push('mine');
+                }
             }
         },
         mounted(){

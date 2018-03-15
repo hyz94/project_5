@@ -13,7 +13,7 @@ module.exports = {
             })
         });
         //post方法获取商品信息
-        app.post('/products', (req, res) => {
+        app.post('/products', filter,(req, res) => {
             let dbName;
             if(req.body.db){
                 dbName = req.body.db;
@@ -141,23 +141,30 @@ module.exports = {
                 db.mongodb.delete(dbName,obj).then((result) => {
                     res.send(result);
                 })
-            } else if(req.body.db == 'carGoods'){
-                //app页面删除购物车的操作
-                console.log('car',req.boay);
-                let obj = {};
-                obj.id = req.body.id;
-                console.log(obj);
-                let dbName;
-                if(req.body.db){
-                    dbName = req.body.db;
-                }else{
-                    dbName = 'products';
-                }
-                db.mongodb.delete(dbName,obj).then((result) => {
-                    res.send(result);
-                })
             }
             
+        });
+        //删除购物车的信息
+        app.post('/axiosDelCar',(req,res) => {
+            console.log('car',req.body);
+            let str = '';
+            //str=010+013+
+            str = req.body.id;
+            str = str.slice(0,-1);
+            let array = str.split('+');
+            console.log(array)
+
+            let dbName;
+            if(req.body.db){
+                dbName = req.body.db;
+            }else{
+                dbName = 'products';
+            }
+            for(let i=0;i<array.length;i++){
+                db.mongodb.delete(dbName,{id:array[i]}).then((result) => {
+                    res.send(result);
+                })
+            };
         });
         //修改商品信息axiosUpdata
         app.post('/axiosUpdata',(req,res) => {
@@ -202,5 +209,7 @@ module.exports = {
                 res.send({qty: qty,data: result})
             })
         });
+        
+        
     }
 }

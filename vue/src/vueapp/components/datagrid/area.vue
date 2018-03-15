@@ -79,10 +79,20 @@
                     this.ulLeft = this.startPoX + this.disX; 
                 }
             },
+<<<<<<< HEAD
             touchEnd:function(id){
                 let end = event.changedTouches[0].clientX;
                 if(Math.abs(end-this.startX)<1){
                     this.showDetail(id);
+=======
+            touchEnd:function(ev){
+                ev.preventDefault();
+                console.log(this.endX);
+                let currNum = Math.round(-this.ulLeft/this.liWidth);
+                let mainWidth = this.$refs.main.offsetWidth;
+                if(currNum<=0){
+                    this.ulLeft = 20;
+>>>>>>> 43fa93baf546e4a6406b6c3c9bc6e59e10620a41
                 }else{
                     let currNum = Math.round(-this.ulLeft/this.liWidth);
                     let mainWidth = this.$refs.main.offsetWidth;
@@ -101,6 +111,7 @@
         mounted(){
             this.show = true;
             axios.get(this.config.api,{params:this.config.params || {}}).then((res)=>{
+                console.log(res.data.data)
                 for(var i=0;i<res.data.data.length;i++){
                     if(res.data.data[i].mainType == this.config.cols){
                         this.arr.push(res.data.data[i]);

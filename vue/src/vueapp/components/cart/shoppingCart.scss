@@ -9,7 +9,7 @@
             height: 0.9375rem;display:flex;justify-content:space-between;line-height: 0.9375rem;font-size:0.390625rem;padding-left:0.014648rem;
             li:first-child{
                 width: 1.875rem;display:flex;align-items:center;
-                .selectAll{margin-right:0.15625rem;width: 0.46875rem;height: 0.46875rem;}
+                .selectAll{margin-right:0.15625rem;width: 0.46875rem;height: 0.46875rem;margin-left:6px;}
                 i{display:inline-block;}
             }
             li:last-child{
@@ -32,6 +32,7 @@
                     img{width: 2.3125rem;height: 2.3125rem;}
                 }
                 .goods_infor{
+                    width: 400px;
                     h4{margin-bottom:0.078125rem;}
                     i{width: 1.25rem;height: 0.3125rem;background:#B81D25;color:white;padding:0 0.15625rem;}
                     .price{color:#B81D25;}

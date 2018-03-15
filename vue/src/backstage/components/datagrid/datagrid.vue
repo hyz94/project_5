@@ -135,9 +135,11 @@
         },
         mounted(){
             //http://10.3.136.9:8080/products
-            this.spinnerShow = true;
+            // this.spinnerShow = true;
+            // window.localStorage.setItem('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imh5eiIsImlhdCI6MTUyMTExNDk3OCwiZXhwIjoxNTIxMTE2NDE4fQ.STRl0N6pj4lNkJskcDkb2JvcelmGoLsd-Bmoq1XgEBE');
             this.url = this.config.api + this.config.apiName;
             http.post(this.url,{db:this.config.db,page:1,limit:10}).then((res) => {
+                console.log(res)
                 this.dataset = res.data.data;
                 this.pageAll = Math.ceil(res.data.qty/this.limit);
                 //判断进行哪个请求下的分页

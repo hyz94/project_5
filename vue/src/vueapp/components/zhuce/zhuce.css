@@ -3,6 +3,9 @@
     height: 100%;
     display:flex;
     flex-direction:column;
+    background-image:url(./z_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 .z_head{
     height: 100px;
@@ -36,6 +39,7 @@
     justify-content:space-between;
 }
 .z_main input{
+    border-radius:10px;
     border: none;
     font-size: 28px;
     padding-left: 20px;
@@ -49,7 +53,9 @@
 .z_main .yanzheng div{
     width: 20%;
     height: 100%;
+    border-radius:10px;
     border: 1px solid #bbb;
+    background-color: #fff;
     float: right;
     font-size: 42px;
     color:#B81B24;
@@ -66,6 +72,7 @@
     width: 30%;
     height: 110%;
     border: 3px solid #B2B2B2;
+    background-color: #fff;
     float: right;
     font-size: 28px;
     color:#6F3738;

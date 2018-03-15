@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const db = require('../db');
 const apiResult = require('../utils/apiResult')
-
+const filter = require('../utils/filter')
 module.exports = {
     register(app){
         //前端注册
@@ -36,13 +36,13 @@ module.exports = {
             })
         }),
         //获取用户信息
-        app.get('/getVueUsers', (req, res) => {
+        app.get('/getVueUsers',(req, res) => {
             db.mongodb.select('vueUsers').then((result) => {
                 let qty = result.length;
                 res.send({qty: qty,data: result})
             })
         });
-        app.post('/getVueUsers', (req, res) => {
+        app.post('/getVueUsers',filter, (req, res) => {
             db.mongodb.select('vueUsers').then((result) => {
                 let qty = result.length;
                 res.send({qty: qty,data: result})

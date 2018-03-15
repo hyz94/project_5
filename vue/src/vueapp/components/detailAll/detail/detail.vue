@@ -146,6 +146,11 @@
 
                 }else{
                     this.buycarQty += this.qty;
+
+                    http.post("http://10.3.136.9:8080/carGoods",{id:this.proId,qty:this.qty}).then((res)=>{
+                           
+                            console.log(res);
+                    })
                 }
            }
 

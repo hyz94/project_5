@@ -29,6 +29,8 @@ import idx from '../components/index/index.vue'
 
 
 
+
+
 const router = new VueRouter({
     routes:[
         {path:'/',component:Home,redirect:'index',children:[
@@ -54,7 +56,9 @@ const router = new VueRouter({
 
             {path:'list',name:'list',component:list},
 
+
             {path:'index',component:idx},
+
 
             
         ]},
@@ -66,8 +70,8 @@ const router = new VueRouter({
         },
         {
              path:'/detailPro',name:'detail',component:DetailComponent
-        }
-        
+        },
+       
     ]
 })
 

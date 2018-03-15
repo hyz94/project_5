@@ -1,12 +1,14 @@
 <template>
     <div class="product_bottom" 
-    @touchstart="touchStart" 
-    @touchmove='touchMove' 
-    @touchend='touchEnd'
     ref="main"
     >
         <ul class="product_list" ref="mainUl" :style="{width:ulWidth + 'px' , left:ulLeft + 'px' ,slideEffect}" >
-            <li v-for="(obj,idx) in dataset" @click="showDetail(obj.id)" ref="mainLi">
+            <li v-for="(obj,idx) in dataset" ref="mainLi"
+            @touchstart="touchStart" 
+            @touchmove='touchMove' 
+            @touchend='touchEnd(obj.id)'
+            @click="showDetail(obj.id)"
+            >
                 <img :src="obj.imgurl" alt="" />
                 <p class="product-name inaline">{{obj.name}}</p>
                 <div class="product-price"> 
@@ -20,11 +22,11 @@
                 </div>
             </li>
             <li>
-                <div class="view-more">
+                <router-link to="/classify" class="view-more">
                     <span class="view-more-text">查看更多</span> 
                     <span>View More</span> 
                     <span class="view-more-arrow">&gt;</span>
-                </div> 
+                </router-link>
             </li>
         </ul>
         <spinner v-if="show"></spinner>
@@ -71,27 +73,30 @@
                     this.startPoX = this.$refs.mainUl.offsetLeft;
             },
             touchMove:function(ev){
-                ev.preventDefault();
                 if(ev.touches.length == 1) {
                     this.moveX = ev.touches[0].clientX;
                     this.disX = this.moveX - this.startX;
-                    this.ulLeft = this.startPoX + this.disX;
+                    this.ulLeft = this.startPoX + this.disX; 
                 }
             },
-            touchEnd:function(ev){
-                ev.preventDefault();
-                let currNum = Math.round(-this.ulLeft/this.liWidth);
-                let mainWidth = this.$refs.main.offsetWidth;
-                if(currNum<=0){
-                    this.ulLeft = 20;
+            touchEnd:function(id){
+                let end = event.changedTouches[0].clientX;
+                if(Math.abs(end-this.startX)<1){
+                    this.showDetail(id);
                 }else{
-                    this.ulLeft = -currNum * this.liWidth + 10;
+                    let currNum = Math.round(-this.ulLeft/this.liWidth);
+                    let mainWidth = this.$refs.main.offsetWidth;
+                    if(currNum<=0){
+                    this.ulLeft = 20;
+                    }else{
+                        this.ulLeft = -currNum * this.liWidth + 10;
+                    }
+                    if(currNum>=this.len-2){
+                        this.ulLeft = -this.liWidth *this.len + mainWidth;
+                    }
                 }
-                if(currNum>=this.len-2){
-                    this.ulLeft = -this.liWidth *this.len + mainWidth;
-                }
+                
             }
-
         },
         mounted(){
             this.show = true;

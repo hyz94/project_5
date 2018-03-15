@@ -42,5 +42,11 @@ module.exports = {
                 res.send({qty: qty,data: result})
             })
         });
+        app.post('/getVueUsers', (req, res) => {
+            db.mongodb.select('vueUsers').then((result) => {
+                let qty = result.length;
+                res.send({qty: qty,data: result})
+            })
+        });
     }
 }

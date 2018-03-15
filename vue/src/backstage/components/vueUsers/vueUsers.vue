@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import datagrid from '../datagrid1/datagrid.vue'
+    import datagrid from '../datagrid/datagrid.vue'
 
     export default {
         components: {
@@ -14,7 +14,9 @@
         data(){
             return {
                 config: {
-                    api: "http://10.3.136.9:8080/getVueUsers",
+                    api: "http://10.3.136.9:8080",
+                    apiName: "/getVueUsers",
+                    db: 'vueUsers',
                     cols: ['username','password'],
                     // params: {page:1, pageitems: 10}
                 }

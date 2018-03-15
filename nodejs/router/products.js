@@ -127,8 +127,25 @@ module.exports = {
                     res.send(result);
                 })
             } else if(req.body.db == 'vueUsers'){
+                //还没完成
+                console.log('iii',req.body)
                 let obj = {};
-                obj.un = req.body.id;
+                obj.username = req.body.username;
+                console.log(obj);
+                let dbName;
+                if(req.body.db){
+                    dbName = req.body.db;
+                }else{
+                    dbName = 'products';
+                }
+                db.mongodb.delete(dbName,obj).then((result) => {
+                    res.send(result);
+                })
+            } else if(req.body.db == 'carGoods'){
+                //app页面删除购物车的操作
+                console.log('car',req.boay);
+                let obj = {};
+                obj.id = req.body.id;
                 console.log(obj);
                 let dbName;
                 if(req.body.db){

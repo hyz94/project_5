@@ -69,7 +69,7 @@
                     <input type="button"  :value="val" class="page-link" @click="paging(val)">
                 </li>             
                 <li class="page-item">
-                    <span class="page-link">Next</span>
+                    <span class="page-link" @click="next">Next</span>
                 </li>
             </ul>
         </div>
@@ -122,7 +122,7 @@
                 idxCompile: '',
                 dictionary: {},
                 zhe:false,
-                page: 0,
+                page: 1,
                 url: '',
                 username: '',
                 password: '',
@@ -292,7 +292,40 @@
                 }
             },
             previous(){
-                
+                this.spinnerShow = true;
+                if(this.page > 1){
+                    this.page --;
+                }
+                if(this.productsPading){
+                    http.post(this.url,{db:this.config.db,page:this.page,limit:this.limit}).then((res) => {
+                        this.dataset = res.data.data;
+                        this.spinnerShow = false;
+                    });
+                } else if(this.insertPading){
+                    let url = this.config.api + '/insert1';                    
+                    http.post(url,{parmas0:this.config.db,parmas1: this.insert1,parmas2: this.insert2,page:this.page,limit:this.limit}).then((res) => {
+                        this.dataset = res.data.data;
+                        this.spinnerShow = false;
+                    });
+                }
+            },
+            next(){
+                this.spinnerShow = true;
+                if(this.page<this.dataset.length){
+                    this.page ++;
+                }
+                if(this.productsPading){
+                    http.post(this.url,{db:this.config.db,page:this.page,limit:this.limit}).then((res) => {
+                        this.dataset = res.data.data;
+                        this.spinnerShow = false;
+                    });
+                } else if(this.insertPading){
+                    let url = this.config.api + '/insert1';                    
+                    http.post(url,{parmas0:this.config.db,parmas1: this.insert1,parmas2: this.insert2,page:this.page,limit:this.limit}).then((res) => {
+                        this.dataset = res.data.data;
+                        this.spinnerShow = false;
+                    });
+                }
             }
         }
     }

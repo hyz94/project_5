@@ -1,10 +1,10 @@
 const jwt = require('jsonwebtoken');
 const db = require('../db');
 const apiResult = require('../utils/apiResult')
-
+const filter = require('../utils/filter.js') 
 module.exports = {
     register(app){
-        app.post('/login', (req, res) => {
+        app.post('/login',(req, res) => {
             console.log(req.body)
             let username = req.body.username;
             let password = req.body.password;

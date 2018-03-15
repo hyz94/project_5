@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import router from '../router/router.js'
 const baseUrl = "http://10.3.136.9:8080"
 
 export default {
@@ -14,10 +14,10 @@ export default {
  			axios({
                 url: url,
 				params: _params || {},
-				headers: {Authorization: window.sessionStorage.getItem('dktoken')}
+				headers: {Authorization: window.localStorage.getItem('dktoken')}
             }).then(res => {
 				if(!res.data.status && res.data.error == "unauthorized"){
-					router.push('login');
+					router.push('/');
 					return false;
 				}
 				resolve(res)
@@ -35,7 +35,7 @@ export default {
 				data: _params || {},
 				headers: {
 					'Content-Type': 'application/x-www-form-urlencoded',
-					Authorization: window.sessionStorage.getItem('dktoken')
+					Authorization: window.localStorage.getItem('dktoken')
 				},
 				transformRequest: [function (data) {
 					let ret = ''
@@ -45,11 +45,13 @@ export default {
                     return ret
 				  }], 
             }).then(res => {
+				console.log('res222',res)
 				if(!res.data.status && res.data.error == "unauthorized"){
-					router.push('login');
+					router.push('/');
 					return false;
 				}				
-                resolve(res)
+				resolve(res)
+				console.log(res);
             }).catch(error => {
 				
             	reject(error)

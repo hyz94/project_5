@@ -127,7 +127,7 @@
         methods: {
             out(){
                 alert('确定要退出登录吗?');
-                router.push('index');
+                router.push('login');
                 sessionStorage.removeItem("username");
             }
         },

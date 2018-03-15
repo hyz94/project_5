@@ -1,2 +1,6 @@
 .header{background: #428cba;}
-h1{text-align: center;line-height: 80px;}
+h1{text-align: center;line-height: 80px;display: inline-block;width:80%;}
+/* .col-sm-2{float:right;}
+.form-control-sm{width:60px;margin:20px 10px;} */
+.input-group{float: right;width:200px;margin:20px 10px;}
+.input-group-text{width:105px;}

@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const db = require('../db');
 const apiResult = require('../utils/apiResult')
+const filter = require('../utils/filter.js')
 
 module.exports = {
     register(app){
@@ -13,7 +14,13 @@ module.exports = {
         });
         //post方法获取商品信息
         app.post('/products', (req, res) => {
-            db.mongodb.select('products').then((result) => {
+            let dbName;
+            if(req.body.db){
+                dbName = req.body.db;
+            } else {
+                dbName = 'products'
+            }
+            db.mongodb.select(dbName).then((result) => {
                 if(req.body.page){
                     let parmas = req.body;
                     let page = parmas.page;
@@ -53,7 +60,13 @@ module.exports = {
             obj[parmas1] = parmas2;
             console.log(obj)
             let parmas = req.body;
-            db.mongodb.select('products',obj).then((result) => {
+            let dbName;
+            if(req.body.parmas0){
+                dbName = req.body.parmas0;
+            }else {
+                dbName = 'products';
+            }
+            db.mongodb.select(dbName,obj).then((result) => {
                 if(req.body.page){
                     let page = req.body.page;
                     let limit = req.body.limit;
@@ -80,19 +93,54 @@ module.exports = {
             let parmas7 = req.body.parmas7;
             let parmas8 = req.body.parmas8;
             let parmas9 = req.body.parmas9;
-            db.mongodb.insert('products',{id: parmas1,name: parmas2,price: parmas3,imgurl: parmas4,color: parmas5,size: parmas6,qty: parmas7,mainType: parmas8,smallType: parmas9}).then((result) => {
-                res.send(result);
-            })
+            let dbName;
+            if(req.body.parmas0){
+                dbName = req.body.parmas0;
+            } else {
+                dbName = 'products';
+            };
+            if(dbName == 'products'){
+                db.mongodb.insert(dbName,{id: parmas1,name: parmas2,price: parmas3,imgurl: parmas4,color: parmas5,size: parmas6,qty: parmas7,mainType: parmas8,smallType: parmas9}).then((result) => {
+                    res.send(result);
+                })
+            }else if(dbName == 'vueUsers'){
+                db.mongodb.insert(dbName,{username:req.body.parmas1,password:req.body.parmas2}).then((result) => {
+                    res.send(result);
+                })
+            }
+            
         });
         //删除商品
         app.post('/axiosDel',(req,res) => {
-            console.log(req.body.id);
-            let obj = {};
-            obj.id = req.body.id;
-            console.log(obj);
-            db.mongodb.delete('products',obj).then((result) => {
-                res.send(result);
-            })
+            if(req.body.db == 'products'){
+                console.log(req.body.id);
+                let obj = {};
+                obj.id = req.body.id;
+                console.log(obj);
+                let dbName;
+                if(req.body.db){
+                    dbName = req.body.db;
+                }else{
+                    dbName = 'products';
+                }
+                db.mongodb.delete(dbName,obj).then((result) => {
+                    res.send(result);
+                })
+            } else if(req.body.db == 'vueUsers'){
+                let obj = {};
+                obj.un = req.body.id;
+                console.log(obj);
+                let dbName;
+                if(req.body.db){
+                    dbName = req.body.db;
+                }else{
+                    dbName = 'products';
+                }
+                db.mongodb.delete(dbName,obj).then((result) => {
+                    res.send(result);
+                })
+            }
+            
         });
         //修改商品信息axiosUpdata
         app.post('/axiosUpdata',(req,res) => {
@@ -110,13 +158,32 @@ module.exports = {
             console.log(array);
             console.log(arrayName);
             let objParmas = {};
-            for(var i=1;i<array.length;i++){
+            for(var i=2;i<array.length;i++){
                 objParmas[arrayName[i]] = array[i];
             }
             console.log(objParmas);
-            db.mongodb.update('products',obj,objParmas).then((result) => {
+            let dbName;
+            if(req.body.db){
+                dbName = req.body.db;
+            }else {
+                dbName = 'products';
+            }
+            db.mongodb.update(dbName,obj,objParmas).then((result) => {
                 res.send(result);
             })
-        })
+        });
+        //将购物车数据写入数据库
+        app.post('/carGoods',(req,res) => {
+            db.mongodb.insert('carGoods',req.body).then((result) => {
+                res.send(result);
+            })
+        });
+        //读取购物车的数据
+        app.get('/getCarGoods',(req,res) => {
+            db.mongodb.select('carGoods').then((result) => {
+                let qty = result.length;
+                res.send({qty: qty,data: result})
+            })
+        });
     }
 }

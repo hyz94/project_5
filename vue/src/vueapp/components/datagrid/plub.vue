@@ -1,7 +1,7 @@
 <template>
     <div>
         <ul class="plub">
-            <li v-for="(obj,idx) in dataset" @click="getCommon(obj.id)">
+            <li v-for="(obj,idx) in dataset" @click="getCommon(obj.smallType)">
                 <img :src="obj.imgurl"/>
                 <span>{{obj.smallType}}</span>
             </li>
@@ -26,8 +26,8 @@
         },
         props:['config'],
         methods:{
-            getCommon:function(id){
-                this.$router.push({name:'detail',params:{proId:id}});
+            getCommon:function(smallType){
+                this.$router.push({name:'list',params:{type:smallType}});
             }
         },
         mounted(){

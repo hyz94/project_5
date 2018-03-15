@@ -15,9 +15,9 @@
             return {
                 config: {
                     api: "http://10.3.136.9:8080",
-                    apiName: "/products",
-                    db: 'products',
-                    cols: ['id','name','price','imgurl','color','size','qty','mainType','smallType'],
+                    apiName: "/getVueUsers",
+                    db: 'vueUsers',
+                    cols: ['username','password'],
                     // params: {page:1, pageitems: 10}
                 }
             }

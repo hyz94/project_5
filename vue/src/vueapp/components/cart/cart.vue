@@ -45,10 +45,10 @@
             <div class='check'>
                 <ul>
                     <li>
-                        <span>需支付：￥</span>
-                        <span>总额：￥</span>
+                        <span>需支付：￥{{price}}</span>
+                        <span>总额：￥{{price}}</span>
                     </li>
-                    <li><a>去结算</a></li>
+                    <li><a>去结算&ensp;({{totalQty}})</a></li>
                 </ul>
             </div>
             
@@ -63,30 +63,33 @@
     
 
     import http from 'axios'
-
+    import http1 from '../../common/httpclient.js'
     
     export default{ 
         data(){
             return{
                 curData:[],
                 allData:[],
+                curData2:[],
                 curData3:[],
                 show:false,
-                trs:[]
+                trs:[],
+                price:0,
+                totalQty:0
             }
         },
         props:['config'],
         mounted(){
             http.get(this.config.api,{params:this.config.params || {}}).then((res)=>{
                 
-                this.curData = res.data.data;
-                // console.log(this.curData);
+                this.curData = res.data.data;   //存放购物车表数据的数组
+
                 http.get('http://10.3.136.9:8080/products').then((res)=>{
                 
-                    this.allData = res.data.data;
+                    this.allData = res.data.data;     //存放products全部商品的数组
                     // console.log(this.allData);
-                    var array = [];
-                    var array2 = [];
+                    var array = [];    //存放购物车表id的数组
+                    var array2 = [];    //
                     // console.log(this.curData)
                     for(var i=0;i<this.curData.length;i++){
                         array.push(this.curData[i].id);
@@ -104,8 +107,8 @@
                     // console.log(array2);
                     // this.curData = array2;
                     // console.log(this.curData[0])
-                    console.log(array2)
-                    console.log(this.curData.length)
+                    //console.log(array2)
+                    //console.log(this.curData.length)
                     
                     this.curData[0]['color'] = array2[0].color;
 
@@ -118,12 +121,20 @@
                                 this.curData[j]['size'] = array2[i].size; 
                                 this.curData[j]['imgurl'] = array2[i].imgurl; 
                                 this.curData[j]['name'] = array2[i].name;
+                                this.curData[j]['price'] = array2[i].price;
                             }
                         }
                     }
                     this.curData3 = this.curData;
+                    console.log(this.curData3)
+                    //计算总价、数量
+                    for(var i=0;i<this.curData3.length;i++){
+                        this.price += this.curData3[i].price;
+                        this.totalQty += (this.curData3[i].qty)*1;
+                    }
+                    //console.log(this.price)
+                    //console.log(this.totalQty)
 
-                    
                 })
                 
 
@@ -149,11 +160,11 @@
                 }
             },
             selectAll:function(){
-                if(this.trs.length == this.curData.length){
+                if(this.trs.length == this.curData3.length){
                     this.trs = [];
                 }else{
                     this.trs = [];
-                    for(var i=0;i<this.curData.length;i++){
+                    for(var i=0;i<this.curData3.length;i++){
                         this.trs.push(i);
                     }
                 }
@@ -161,14 +172,35 @@
             },
           
             deletePro: function(){
-                var arr = [];
-                for(var i=0;i<this.curData.length;i++){
-                    if(this.trs.indexOf(i) <0){
-                        arr.push(this.curData[i]);
-                    }                      
+                console.log(this.trs);
+                var array = [];
+                var str = '';
+                for(var i=0;i<this.curData3.length;i++){
+                    if(this.trs.indexOf(i)>=0){
+                        array.push({
+                            id:this.curData3[i].id
+                        });
+                       
+                    }      
                 } 
-                this.curData = arr;
-                this.trs = [];   
+                console.log(array);
+                for(var i=0;i<array.length;i++){
+                    str += array[i].id + '+';
+                }
+                console.log(str);
+                http1.post("http://10.3.136.9:8080/axiosDelCar",{db:'carGoods',id:str}).then((res)=>{
+                    console.log('删除成功!')
+                    http1.get("http://10.3.136.9:8080/getCarGoods").then((res) => {
+                        console.log(res);
+                        this.curData3 = res.data.data;
+
+
+
+                    })
+
+                })
+
+                this.trs = [];
             }
 
         }

@@ -46,274 +46,40 @@
                         <img src="../../img/man_wear.jpg" alt="" />
                     </a>
                 </div>
-                <div class="product_bottom man_wear_bottom">
-                    <ul class="product_list">
-                        <li>
-                            <a href="">
-                                <img src="../../img/product1.jpg" alt="" />
-                                <p class="product-name inaline">凡客衬衫 吉国武 免烫 温莎领 100支 紫色人字纹</p>
-                                <div class="product-price "> 
-                                    <span>售价：¥ 398</span> 
-                                    <span>充值相当于：<i>¥ 199</i></span> 
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="../../img/product1.jpg" alt="" />
-                                <p class="product-name inaline">凡客衬衫 吉国武 免烫 温莎领 100支 紫色人字纹</p>
-                                <div class="product-price"> 
-                                    <span>售价：¥ 398</span> 
-                                    <span>充值相当于：<i>¥ 199</i></span> 
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="../../img/product1.jpg" alt="" />
-                                <p class="product-name inaline">凡客衬衫 吉国武 免烫 温莎领 100支 紫色人字纹</p>
-                                <div class="product-price"> 
-                                    <span>售价：¥ 398</span> 
-                                    <span>充值相当于：<i>¥ 199</i></span> 
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="../../img/product1.jpg" alt="" />
-                                <p class="product-name inaline">凡客衬衫 吉国武 免烫 温莎领 100支 紫色人字纹</p>
-                                <div class="product-price"> 
-                                    <span>售价：¥ 398</span> 
-                                    <span>充值相当于：<i>¥ 199</i></span> 
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="../../img/product1.jpg" alt="" />
-                                <p class="product-name inaline">凡客衬衫 吉国武 免烫 温莎领 100支 紫色人字纹</p>
-                                <div class="product-price"> 
-                                    <span>售价：¥ 398</span> 
-                                    <span>充值相当于：<i>¥ 199</i></span> 
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="more-link"> 
-                                <span class="view-more-text">查看更多</span> 
-                                <span>View More</span> 
-                                <span class="view-more-arrow">&gt;</span> 
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                <Area :config="configManC">
+                </Area>
             </div>
             <div class="woman_wear product">
                 <div class="product_top woman_wear_top">
                     <a href="">
-                        <img src="../../img/man_wear.jpg" alt="" />
+                        <img src="../../img/women_wear.jpg" alt="" />
                     </a>
                 </div>
-                <div class="product_bottom woman_wear_bottom">
-                    <ul class="product_list">
-                        <li>
-                            <a href="">
-                                <img src="../../img/product1.jpg" alt="" />
-                                <p class="product-name inaline">凡客衬衫 吉国武 免烫 温莎领 100支 紫色人字纹</p>
-                                <div class="product-price"> 
-                                    <span>售价：¥ 398</span> 
-                                    <span>充值相当于：<i>¥ 199</i></span> 
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="../../img/product1.jpg" alt="" />
-                                <p class="product-name inaline">凡客衬衫 吉国武 免烫 温莎领 100支 紫色人字纹</p>
-                                <div class="product-price"> 
-                                    <span>售价：¥ 398</span> 
-                                    <span>充值相当于：<i>¥ 199</i></span> 
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="../../img/product1.jpg" alt="" />
-                                <p class="product-name inaline">凡客衬衫 吉国武 免烫 温莎领 100支 紫色人字纹</p>
-                                <div class="product-price"> 
-                                    <span>售价：¥ 398</span> 
-                                    <span>充值相当于：<i>¥ 199</i></span> 
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="../../img/product1.jpg" alt="" />
-                                <p class="product-name inaline">凡客衬衫 吉国武 免烫 温莎领 100支 紫色人字纹</p>
-                                <div class="product-price"> 
-                                    <span>售价：¥ 398</span> 
-                                    <span>充值相当于：<i>¥ 199</i></span> 
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="../../img/product1.jpg" alt="" />
-                                <p class="product-name inaline">凡客衬衫 吉国武 免烫 温莎领 100支 紫色人字纹</p>
-                                <div class="product-price"> 
-                                    <span>售价：¥ 398</span> 
-                                    <span>充值相当于：<i>¥ 199</i></span> 
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="more-link"> 
-                                <span class="view-more-text">查看更多</span> 
-                                <span>View More</span> 
-                                <span class="view-more-arrow">&gt;</span> 
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                <Area :config="configWomanC">
+                </Area>
             </div>
             <div class="product man_shoes">
                 <div class="product_top man_shoes_top">
                     <a href="">
-                        <img src="../../img/man_wear.jpg" alt="" />
+                        <img src="../../img/man_shoes.jpg" alt="" />
                     </a>
                 </div>
-                <div class="product_bottom man_shoes_bottom">
-                    <ul class="product_list">
-                        <li>
-                            <a href="">
-                                <img src="../../img/product1.jpg" alt="" />
-                                <p class="product-name inaline">凡客衬衫 吉国武 免烫 温莎领 100支 紫色人字纹</p>
-                                <div class="product-price"> 
-                                    <span>售价：¥ 398</span> 
-                                    <span>充值相当于：<i>¥ 199</i></span> 
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="../../img/product1.jpg" alt="" />
-                                <p class="product-name inaline">凡客衬衫 吉国武 免烫 温莎领 100支 紫色人字纹</p>
-                                <div class="product-price"> 
-                                    <span>售价：¥ 398</span> 
-                                    <span>充值相当于：<i>¥ 199</i></span> 
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="../../img/product1.jpg" alt="" />
-                                <p class="product-name inaline">凡客衬衫 吉国武 免烫 温莎领 100支 紫色人字纹</p>
-                                <div class="product-price"> 
-                                    <span>售价：¥ 398</span> 
-                                    <span>充值相当于：<i>¥ 199</i></span> 
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="../../img/product1.jpg" alt="" />
-                                <p class="product-name inaline">凡客衬衫 吉国武 免烫 温莎领 100支 紫色人字纹</p>
-                                <div class="product-price"> 
-                                    <span>售价：¥ 398</span> 
-                                    <span>充值相当于：<i>¥ 199</i></span> 
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="../../img/product1.jpg" alt="" />
-                                <p class="product-name inaline">凡客衬衫 吉国武 免烫 温莎领 100支 紫色人字纹</p>
-                                <div class="product-price"> 
-                                    <span>售价：¥ 398</span> 
-                                    <span>充值相当于：<i>¥ 199</i></span> 
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="more-link"> 
-                                <span class="view-more-text">查看更多</span> 
-                                <span>View More</span> 
-                                <span class="view-more-arrow">&gt;</span> 
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                <Area :config="configManS">
+                </Area>
             </div>
             <div class="product woman_shoes">
                 <div class="product_top woman_shoes_top">
                     <a href="">
-                        <img src="../../img/man_wear.jpg" alt="" />
+                        <img src="../../img/man_shoes.jpg" alt="" />
                     </a>
                 </div>
-                <div class="product_bottom woman_shoes_bottom">
-                    <ul class="product_list">
-                        <li>
-                            <a href="">
-                                <img src="../../img/product1.jpg" alt="" />
-                                <p class="product-name inaline">凡客衬衫 吉国武 免烫 温莎领 100支 紫色人字纹</p>
-                                <div class="product-price"> 
-                                    <span>售价：¥ 398</span> 
-                                    <span>充值相当于：<i>¥ 199</i></span> 
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="../../img/product1.jpg" alt="" />
-                                <p class="product-name inaline">凡客衬衫 吉国武 免烫 温莎领 100支 紫色人字纹</p>
-                                <div class="product-price"> 
-                                    <span>售价：¥ 398</span> 
-                                    <span>充值相当于：<i>¥ 199</i></span> 
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="../../img/product1.jpg" alt="" />
-                                <p class="product-name inaline">凡客衬衫 吉国武 免烫 温莎领 100支 紫色人字纹</p>
-                                <div class="product-price"> 
-                                    <span>售价：¥ 398</span> 
-                                    <span>充值相当于：<i>¥ 199</i></span> 
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="../../img/product1.jpg" alt="" />
-                                <p class="product-name inaline">凡客衬衫 吉国武 免烫 温莎领 100支 紫色人字纹</p>
-                                <div class="product-price"> 
-                                    <span>售价：¥ 398</span> 
-                                    <span>充值相当于：<i>¥ 199</i></span> 
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="../../img/product1.jpg" alt="" />
-                                <p class="product-name inaline">凡客衬衫 吉国武 免烫 温莎领 100支 紫色人字纹</p>
-                                <div class="product-price"> 
-                                    <span>售价：¥ 398</span> 
-                                    <span>充值相当于：<i>¥ 199</i></span> 
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="more-link"> 
-                                <span class="view-more-text">查看更多</span> 
-                                <span>View More</span> 
-                                <span class="view-more-arrow">&gt;</span> 
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                <Area :config="configWomanS">
+                </Area>
             </div>
         </main>
     </div>
+
+
 </template>
 
 <script>
@@ -321,13 +87,46 @@
     //import './base.css'
     import '../../common/jquery-3.2.1.js'
     import carousel from './carousel/carousel.vue'
-    import './index.js'
+    //import manClothes from './area/manClothes.vue'
+    import Area from '../datagrid/area.vue'
+    //import './index.js'
+    //
+
     export default{
         components:{
-            carousel
+            carousel,
+            Area
+        },
+        data(){
+            return{
+
+                configManC:{
+                    api:'http://10.3.136.9:8080/products',
+                    params :{showNum:5},
+                    cols:['manClothes']
+                },
+                configWomanC:{
+                    api:'http://10.3.136.9:8080/products',
+                    params : {showNum:5},
+                    cols:['womenClothes']
+                },
+                configManS:{
+                    api:'http://10.3.136.9:8080/products',
+                    params : {showNum:5},
+                    cols:['manShoes']
+                },
+                configWomanS:{
+                    api:'http://10.3.136.9:8080/products',
+                    params : {showNum:5},
+                    cols:['womenShoes']
+                }
+
+            }
         },
         mounted(){
             $('.product_list')
+
+
         }
     }
 </script>

@@ -1,5 +1,4 @@
 jQuery(function($){
-    $('#full_feature').swipeslider();
     var $main = $('#v_main .man_wear .man_wear_bottom');
     var $mainUl = $('#v_main .man_wear .man_wear_bottom .product_list');
     var $mainWidth = $main.outerWidth(true);
@@ -9,6 +8,7 @@ jQuery(function($){
     var startX,endX;
     var startEle = 0;
     var startLeft = $mainUl.position().left;
+
     $main.on('touchstart',function(e){
         startX = e.originalEvent.touches[0].clientX;
         startEle = $mainUl.position().left;

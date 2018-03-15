@@ -80,6 +80,7 @@
             },
             touchEnd:function(ev){
                 ev.preventDefault();
+                console.log(this.endX);
                 let currNum = Math.round(-this.ulLeft/this.liWidth);
                 let mainWidth = this.$refs.main.offsetWidth;
                 if(currNum<=0){
@@ -96,6 +97,7 @@
         mounted(){
             this.show = true;
             axios.get(this.config.api,{params:this.config.params || {}}).then((res)=>{
+                console.log(res.data.data)
                 for(var i=0;i<res.data.data.length;i++){
                     if(res.data.data[i].mainType == this.config.cols){
                         this.arr.push(res.data.data[i]);

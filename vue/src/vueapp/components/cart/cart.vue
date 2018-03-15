@@ -244,6 +244,10 @@
                                 }
                                 //console.log(this.price)
                                 //console.log(this.totalQty)
+                                if(this.curDate3.length==0){
+                                    this.price=0;
+                                    this.totalQty=0;
+                                }
 
                             })
 

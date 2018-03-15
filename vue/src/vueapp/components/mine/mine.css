@@ -9,12 +9,13 @@
     color:#fff;
     position:relative;
 }
-.m_head>b{
+.m_head #b{
     font-size: 70px;
     position:absolute;
     left: 15px;
     top:-5px;
     font-weight: normal;
+    color:#fff;
 }
 .m_head>p{
     font-size: 28px;
@@ -31,13 +32,15 @@
 }
 .xinxi>i{
     display: block;
-    font-size: 40px;
-    width: 40px;
+    font-size: 26px;
+    width: 135px;
     height: 40px;
     color:#fff;
     position:absolute;
     right: 10px;
     top: 10px;
+    border: 2px solid #fff;
+    border-radius: 10px;
 }
 .xinxi>img{
     margin: 30px auto;

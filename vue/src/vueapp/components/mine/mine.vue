@@ -1,11 +1,11 @@
 <template>
     <div class="mine">
         <header class="m_head">
-            <b>&lt;</b>
+            <router-link to="/index" id="b">&lt;</router-link>
             <p>个人中心</p>
         </header>
         <div class="xinxi">
-            <i class="ico iconfont icon-shezhi"></i>
+            <i class="ico iconfont icon-shezhi" @click="out">退出登录</i>
             <img src="./img/pu.jpg"/>
             <p v-model="username" ref="username"></p>
             <div class="huiyuan">
@@ -122,6 +122,13 @@
         data(){
             return {
                 username: ''
+            }
+        },
+        methods: {
+            out(){
+                alert('确定要退出登录吗?');
+                router.push('index');
+                sessionStorage.removeItem("username");
             }
         },
         mounted(){

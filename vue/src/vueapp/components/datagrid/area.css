@@ -12,3 +12,5 @@
 .product_list li:last-child .view-more span{color:#cdba8d;}
 .product_list li:last-child .view-more .view-more-text{font-weight:bolder;}
 .product_list li:last-child .view-more .view-more-arrow{height:0.4375rem;width:0.4375rem;background: #cdba8d;color:#fff;border-radius:50%;text-align:center;line-height:0.4375rem;}
+.fade-enter{opacity: 0;}
+.fade-enter-active{transition: all 1s;}

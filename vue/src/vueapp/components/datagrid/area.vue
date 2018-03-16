@@ -2,7 +2,7 @@
     <div class="product_bottom" 
     ref="main"
     >
-        <ul class="product_list" ref="mainUl" :style="{width:ulWidth + 'px' , left:ulLeft + 'px' ,slideEffect}" >
+        <ul class="product_list" ref="mainUl" :style="{width:ulWidth + 'px',left:ulLeft+'px', transition:'all .5s'}" >
             <li v-for="(obj,idx) in dataset" ref="mainLi"
             @touchstart="touchStart" 
             @touchmove='touchMove' 
@@ -76,7 +76,10 @@
                 if(ev.touches.length == 1) {
                     this.moveX = ev.touches[0].clientX;
                     this.disX = this.moveX - this.startX;
-                    this.ulLeft = this.startPoX + this.disX; 
+                    this.ulLeft = this.startPoX + this.disX;
+                    this.slideEffect = 'translateX('+ 
+                    this.ulLeft
+                    + 'px)'
                 }
             },
             touchEnd:function(id){
@@ -94,6 +97,9 @@
                     if(currNum>=this.len-2){
                         this.ulLeft = -this.liWidth *this.len + mainWidth;
                     }
+                    this.slideEffect = 'translateX('+ 
+                    this.ulLeft
+                    + 'px)'
                 }
                 
             }

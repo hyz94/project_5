@@ -4,9 +4,9 @@
             <div class="search">
                 <i class="fa fa-search"></i>
                 <input type="text" placeholder="熊本熊"/>
-                <a href="" class="msg">
+                <router-link to="/login" class="msg">
                     <span>...</span>
-                </a>
+                </router-link>
             </div>
         </header>
         <section id="carousel">

@@ -147,7 +147,7 @@
                 this.productsPading = 'productsPading',
                 this.spinnerShow = false;
             });
-            http.get('http://localhost:88/src/backstage/dictionary/common.json').then((res) => {
+            http.get('http://10.3.136.9:88/src/backstage/dictionary/common.json').then((res) => {
                 this.dictionary = res.data;
             })
         },

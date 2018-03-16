@@ -2,7 +2,7 @@
     <div class="product_bottom" 
     ref="main"
     >
-        <ul class="product_list" ref="mainUl" :style="{width:ulWidth + 'px' , left:ulLeft + 'px' ,slideEffect}" >
+        <ul class="product_list" ref="mainUl" :style="{width:ulWidth + 'px',left:ulLeft+'px', transition:'all .5s'}" >
             <li v-for="(obj,idx) in dataset" ref="mainLi"
             @touchstart="touchStart" 
             @touchmove='touchMove' 
@@ -76,23 +76,16 @@
                 if(ev.touches.length == 1) {
                     this.moveX = ev.touches[0].clientX;
                     this.disX = this.moveX - this.startX;
-                    this.ulLeft = this.startPoX + this.disX; 
+                    this.ulLeft = this.startPoX + this.disX;
+                    this.slideEffect = 'translateX('+ 
+                    this.ulLeft
+                    + 'px)'
                 }
             },
-<<<<<<< HEAD
             touchEnd:function(id){
                 let end = event.changedTouches[0].clientX;
                 if(Math.abs(end-this.startX)<1){
                     this.showDetail(id);
-=======
-            touchEnd:function(ev){
-                ev.preventDefault();
-                console.log(this.endX);
-                let currNum = Math.round(-this.ulLeft/this.liWidth);
-                let mainWidth = this.$refs.main.offsetWidth;
-                if(currNum<=0){
-                    this.ulLeft = 20;
->>>>>>> 43fa93baf546e4a6406b6c3c9bc6e59e10620a41
                 }else{
                     let currNum = Math.round(-this.ulLeft/this.liWidth);
                     let mainWidth = this.$refs.main.offsetWidth;
@@ -104,6 +97,9 @@
                     if(currNum>=this.len-2){
                         this.ulLeft = -this.liWidth *this.len + mainWidth;
                     }
+                    this.slideEffect = 'translateX('+ 
+                    this.ulLeft
+                    + 'px)'
                 }
                 
             }

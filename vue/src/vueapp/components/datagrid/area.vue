@@ -65,6 +65,8 @@
         methods:{
             showDetail:function(id){
                 this.$router.push({name:'detail',params:{proId:id}});
+                window.sessionStorage.setItem('proId',id);
+
             },
             touchStart:function(ev){
                 ev.preventDefault();

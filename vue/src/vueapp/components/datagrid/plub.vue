@@ -28,6 +28,7 @@
         methods:{
             getCommon:function(smallType){
                 this.$router.push({name:'list',params:{type:smallType}});
+                window.sessionStorage.setItem('smallType',smallType);
             }
         },
         mounted(){

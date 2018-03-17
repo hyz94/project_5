@@ -4,7 +4,8 @@
             <div class='edit'>
                 <ul>
                 <li>
-                    <input type='checkbox' class='selectAll' @click='selectAll' v-if='trs.length==curData3.length' checked key="'a'"/>
+                    <input type='checkbox' class='selectAll' @click='selectAll' v-if='trs.length==curData3.length && !(trs.length==0)'
+ checked key="'a'"/>
                     <input type='checkbox' class='selectAll' @click='selectAll' v-else  key="'b'"/>
                     <i>在购</i>
                 </li>

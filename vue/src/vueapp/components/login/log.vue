@@ -51,7 +51,7 @@
                 http.post('http://10.3.136.9:8080/vueLogin', {username: this.username,password: this.pwd}).then((res) => {
                     console.log(res.data)
                     if(res.data.status){
-                        window.localStorage.setItem('token', res.data.data);
+                        // window.localStorage.setItem('token', res.data.data);
                         router.push({path:'mine'});
                         sessionStorage.setItem("username",this.username);
                     }else{

@@ -1,3 +1,4 @@
+余鹏城 17:10:06
 <template>
     <div class="product_bottom" 
     ref="main"
@@ -13,11 +14,11 @@
                 <p class="product-name inaline">{{obj.name}}</p>
                 <div class="product-price"> 
                     <span>
-                        售价：¥ {{obj.price}}
+                        售价：￥ {{obj.price}}
                     </span> 
                     <span>
                         充值相当于：
-                        <i>¥ {{obj.price}}</i>
+                        <i>￥ {{obj.price}}</i>
                     </span>
                 </div>
             </li>
@@ -79,20 +80,10 @@
                     this.ulLeft = this.startPoX + this.disX; 
                 }
             },
-<<<<<<< HEAD
             touchEnd:function(id){
                 let end = event.changedTouches[0].clientX;
                 if(Math.abs(end-this.startX)<1){
                     this.showDetail(id);
-=======
-            touchEnd:function(ev){
-                ev.preventDefault();
-                console.log(this.endX);
-                let currNum = Math.round(-this.ulLeft/this.liWidth);
-                let mainWidth = this.$refs.main.offsetWidth;
-                if(currNum<=0){
-                    this.ulLeft = 20;
->>>>>>> 43fa93baf546e4a6406b6c3c9bc6e59e10620a41
                 }else{
                     let currNum = Math.round(-this.ulLeft/this.liWidth);
                     let mainWidth = this.$refs.main.offsetWidth;

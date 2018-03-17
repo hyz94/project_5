@@ -14,6 +14,7 @@ module.exports = {
         });
         //post方法获取商品信息
         app.post('/products', filter,(req, res) => {
+            console.log('111111',req.body)
             let dbName;
             if(req.body.db){
                 dbName = req.body.db;
@@ -198,6 +199,7 @@ module.exports = {
         });
         //将购物车数据写入数据库
         app.post('/carGoods',(req,res) => {
+            console.log('car222',req.body)
             db.mongodb.insert('carGoods',req.body).then((result) => {
                 res.send(result);
             })

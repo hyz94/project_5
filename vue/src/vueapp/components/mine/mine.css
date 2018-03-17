@@ -4,27 +4,27 @@
     flex-direction:column;
 }
 .m_head{
-    height: 90px;
+    height: 1.40625rem;
     background-color: #B81B22;
     color:#fff;
     position:relative;
 }
 .m_head #b{
-    font-size: 70px;
+    font-size: 1.09375rem;
     position:absolute;
-    left: 15px;
-    top:-5px;
+    left: 0.234375rem;
+    top:-0.078125rem;
     font-weight: normal;
     color:#fff;
 }
 .m_head>p{
-    font-size: 28px;
+    font-size: 0.4375rem;
     text-align: center;
-    line-height: 90px;
+    line-height: 1.40625rem;
 }
 
 .xinxi{
-    flex:5;
+    height: 7.03125rem;
     background-image:url(./img/backg.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -32,93 +32,94 @@
 }
 .xinxi>i{
     display: block;
-    font-size: 26px;
-    width: 135px;
-    height: 40px;
+    font-size: 0.40625rem;
+    width: 2.109375rem;
+    height: 0.625rem;
     color:#fff;
     position:absolute;
-    right: 10px;
-    top: 10px;
-    border: 2px solid #fff;
-    border-radius: 10px;
+    right: 0.15625rem;
+    top: 0.15625rem;
+    border: 0.03125rem solid #fff;
+    border-radius: 0.15625rem;
 }
 .xinxi>img{
-    margin: 30px auto;
-    width: 140px;
-    height: 140px;
+    margin: 0.46875rem auto;
+    width: 2.1875rem;
+    height: 2.1875rem;
     border-radius:50% ;
 }
 .xinxi>p{
     text-align: center;
-    font-size: 26px;
+    font-size: 0.40625rem;
     color:#fff;
     line-height: 0;
     font-weight: bold;
 }
 .xinxi .huiyuan{
-    margin:26px auto;
-    width: 115px;
-    height: 30px;
-    border-radius: 15px;
+    margin:0.40625rem auto;
+    width: 1.796875rem;
+    height: 0.46875rem;
+    border-radius: 0.234375rem;
     background-color: #fff;
-    line-height: 30px;
+    line-height: 0.46875rem;
     color:#51504E;
-    font-size: 14px;
-    padding-left: 24px;
+    font-size: 0.21875rem;
+    padding-left: 0.375rem;
     position:relative;
 }
 .xinxi .huiyuan p{
     text-align: center;
     color:#000;
     font-weight: bold;
-    font-size: 16px;
-    line-height: 30px;
+    font-size: 0.25rem;
+    line-height: 0.46875rem;
 }
 .xinxi .huiyuan p>i{
     display: inline-block;
-    width: 18px;
-    height: 25px;
+    width: 0.28125rem;
+    height: 0.390625rem;
     background-color: #58bc58;
     color:#fff;
     text-align: center;
     position:absolute;
-    line-height: 25px;
-    top: 3px;
-    left: 10px;
+    line-height: 0.390625rem;
+    top: 0.046875rem;
+    left: 0.15625rem;
     border-radius: 50%;
 }
 .xinxi>ul{
+    margin-top: 1.25rem;
     color:#fff;
     display:flex;
     justify-content: space-around;
 }
 .xinxi>ul>li{
-    font-size: 24px;
+    font-size: 0.375rem;
 }
 
 .m_main{
-    height: 600px;
+    height: 9.375rem;
     overflow-x: hidden;
     background-color: #eee;
 }
 .m_main .order{
     width:100%;
-    height: 215px;
-    margin: 20px auto;
+    height: 3.359375rem;
+    margin: 0.3125rem auto;
     background-color: #fff;
 }
 .m_main .order p{
-    height:70px;
-    padding: 0 10px; 
-    border-bottom: 2px solid #ccc;
-    font-size: 26px;
+    height:1.09375rem;
+    padding: 0 0.15625rem; 
+    border-bottom: 0.03125rem solid #ccc;
+    font-size: 0.40625rem;
     color:#080808;
-    line-height: 70px;
+    line-height: 1.09375rem;
     display:flex;
     justify-content: space-between;
 }
 .m_main .clear {
-    font-size: 22px;
+    font-size: 0.34375rem;
     display:flex;
     justify-content: space-around;
 }
@@ -127,38 +128,38 @@
 }
 .m_main .clear .icon{
     display: block;
-    width:60px;
-    height: 60px;
-    border: 3px solid #999999;
+    width:0.9375rem;
+    height: 0.9375rem;
+    border: 0.046875rem solid #999999;
     border-radius: 50%;
     text-align: center;
-    line-height: 55px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: 28px;
+    line-height: 0.859375rem;
+    margin-top: 0.3125rem;
+    margin-bottom: 0.3125rem;
+    font-size: 0.4375rem;
     color:#999999;
 }
 .m_main .server>ul{
     color:#fff;
     display:flex;
     justify-content: space-between;
-    font-size: 25px;
+    font-size: 0.390625rem;
     background-color: #fff;
 }
 .m_main .server>ul>li{
     width: 25%;
-    height: 150px;
-    font-size: 24px;
+    height: 2.34375rem;
+    font-size: 0.375rem;
     color:#080808;
     text-align: center;
-    border: 1px solid #ccc;
+    border: 0.015625rem solid #ccc;
 }
 .m_main .server>ul>li .icon{
     display: block;
     width:100%;
-    height: 80px;
-    font-size: 66px;
-    margin: 15px 0;
+    height: 1.25rem;
+    font-size: 1.03125rem;
+    margin: 0.234375rem 0;
 }
 .m_main .server .clear2{
     justify-content: flex-start;

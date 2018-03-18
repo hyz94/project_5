@@ -35,7 +35,7 @@
 <script>
     //import './plub.css'
     import './area.css'
-    import axios from 'axios'
+    import axios from '../../common/httpclient'
     import spinner from '../spinner/spinner.vue'
     import './area.css'
     

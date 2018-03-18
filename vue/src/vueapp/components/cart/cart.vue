@@ -4,9 +4,9 @@
             <div class='edit'>
                 <ul>
                 <li>
-                    <input type='checkbox' class='selectAll' @click='selectAll' v-if='trs.length==curData3.length && !(trs.length==0)'
- checked key="'a'"/>
-                    <input type='checkbox' class='selectAll' @click='selectAll' v-else  key="'b'"/>
+
+                    <input type='checkbox' ref="all" class='selectAll' @click='selectAll' v-if='trs.length==curData3.length && !(trs.length==0)' checked key="'a'"/>
+                    <input type='checkbox' ref="all" class='selectAll' @click='selectAll' v-else  key="'b'"/>
                     <i>在购</i>
                 </li>
                     <li><a class='delGoods' @click='deletePro'>删除</a></li>
@@ -16,8 +16,8 @@
                 <ul>
                     <li v-for='(obj,idx) in curData3' >
                         <div class='goods_select' >
-                            <input type='checkbox' class='selectPro' @click='selectPro(idx)' v-if='trs.indexOf(idx)>-1' checked :key="'a'+idx">
-                            <input type='checkbox' class='selectPro' @click='selectPro(idx)' v-else :key="'b'+idx">
+                            <input type='checkbox' :id="idx" class='selectPro' @click='selectPro(idx)' v-if='trs.indexOf(idx)>-1' ref='radio' checked :key="'a'+idx">
+                            <input type='checkbox' :id="idx" class='selectPro' ref='radio' @click='selectPro(idx)' v-else :key="'b'+idx">
                         </div>
                         <div class='goods_img'>
                             <img :src="obj.imgurl"/>
@@ -26,11 +26,11 @@
                             <h4>{{obj.name}}</h4>
                             颜色：<span>{{obj.color}}</span>
                             尺码：<span>{{obj.size}}</span>
-                            <p><i>特惠</i><span class='price'>{{obj.price}}</span></p>
+                            <p><i>特惠</i><span class='price'>￥{{obj.price}}元</span></p>
                             <div class='qty_plus'>
-                                <a href='#' class='minus' >-</a>
+                                <a href='#' class='minus' @click="minus(idx)">-</a>
                                 <span class='qty' >{{obj.qty}}</span>
-                                <a href='#' class='plus' >+</a>
+                                <a href='#' class='plus' @click="plus(idx)">+</a>
                             </div>
                         </div>
                     </li>
@@ -40,14 +40,14 @@
             <div class='shop'>
                 <ul>
                     <li>满199元免运费</li>
-                    <li><a>去选购></a></li>
+                    <li><a @click='back'>去选购></a></li>
                 </ul>
             </div>
             <div class='check'>
                 <ul>
                     <li>
-                        <span>需支付：￥{{price}}</span>
-                        <span>总额：￥{{price}}</span>
+                        <span>需支付：￥{{price}}元</span>
+                        <span>总额：￥{{price}}元</span>
                     </li>
                     <li><a>去结算&ensp;({{totalQty}})</a></li>
                 </ul>
@@ -60,11 +60,13 @@
 <script>
     import '../../common/common.css'
     import './shoppingCart.scss'
+    import router from '../../router/router'
     //import config from './config.vue'
     
 
     import http from 'axios'
     import http1 from '../../common/httpclient.js'
+import index from 'axios';
     
     export default{ 
         data(){
@@ -76,7 +78,10 @@
                 show:false,
                 trs:[],
                 price:0,
-                totalQty:0
+                totalQty:0,
+                minus1:false,
+                plus1:false
+                
             }
         },
         props:['config'],
@@ -111,8 +116,6 @@
                     //console.log(array2)
                     //console.log(this.curData.length)
                     
-                    
-
                     for(var i=0;i<array2.length;i++){
                         // console.log(array2[i])
                         for(var j=0;j<this.curData.length;j++){
@@ -129,12 +132,12 @@
                     this.curData3 = this.curData;
                     
                     //计算总价、数量
-                    for(var i=0;i<this.curData3.length;i++){
+                    // for(var i=0;i<this.curData3.length;i++){
 
-                        this.price += this.curData3[i].price*this.curData3[i].qty;
-                        this.totalQty += (this.curData3[i].qty)*1;
+                    //     this.price += this.curData3[i].price*this.curData3[i].qty;
+                    //     this.totalQty += (this.curData3[i].qty)*1;
 
-                    }
+                    // }
                     //console.log(this.price)
                     //console.log(this.totalQty)
                     
@@ -143,7 +146,9 @@
                 
 
             });
-            
+            function shuibian(){
+                console.log('shuibian',111);
+            }
         },
         methods:{
             //increment:function(){
@@ -162,6 +167,50 @@
                 }else{
                     this.trs.push(idx);
                 }
+                console.log(idx)
+                console.log(this.curData3[idx]);
+                console.log('hhh',this.$refs.radio);
+
+                
+                // this.price = 0;
+                this.minus1 = true;
+                this.plus1 = true;
+                // this.totalQty =0;
+                // for(var i=0;i<this.$refs.radio.length;i++){
+                //     console.log(this.$refs.radio[i].checked)
+                    
+                //     if(this.$refs.radio[i].checked ==true){
+                        
+
+                //         this.price+=this.curData3[i].price*this.curData3[i].qty;
+                //         this.totalQty += this.curData3[i].qty*1;
+                //         // console.log(this.minus1)
+                //         // if(this.minus1=true){
+                //         //     this.price =this.curData3[i].price*this.minusQty;
+                //         // }
+                         
+                //     }
+                // }
+               let array = [];
+                for(var i=0;i<this.$refs.radio.length;i++){
+                    if(this.$refs.radio[i].checked == true){
+                        console.log(this.$refs.radio[i].id)
+                        array.push(this.$refs.radio[i].id)
+                    }
+                }
+                console.log('array',array)
+                if(this.minus1 == true){
+                    
+                    this.price = 0;
+                    this.totalQty = 0;
+                    for(var i=0;i<array.length;i++){
+                        this.price+=this.curData3[array[i]].price*this.curData3[array[i]].qty;
+                        this.totalQty += this.curData3[array[i]].qty*1;
+                    }
+                }
+                console.log(this)
+
+
             },
             selectAll:function(){
                 if(this.trs.length == this.curData3.length){
@@ -172,7 +221,110 @@
                         this.trs.push(i);
                     }
                 }
-                // console.log(this.config)
+                console.log(this.$refs.all.checked)
+                this.minus1 = true;
+                this.plus1 = true;
+                if(this.$refs.all.checked == false){
+                    this.price = 0;
+                    this.totalQty = 0;
+                } else if(this.$refs.all.checked == true){
+                    this.totalQty = 0;
+                    this.price = 0;
+                    for(var i=0;i<this.curData3.length;i++){
+                        
+                        this.price+=this.curData3[i].price*this.curData3[i].qty;
+                        this.totalQty += this.curData3[i].qty*1;
+                    }
+                }
+                // let array = [];
+                // for(var i=0;i<this.$refs.radio.length;i++){
+                //     if(this.$refs.radio[i].checked == false){
+                //         console.log(this.$refs.radio[i].id)
+                //         array.push(this.$refs.radio[i].id)
+                //     }
+                // }
+                // console.log('array',array)
+                
+                    
+                //     this.price = 0;
+                //     this.totalQty = 0;
+                //     for(var i=0;i<array.length;i++){
+                //         this.price+=this.curData3[array[i]].price*this.curData3[array[i]].qty;
+                //         this.totalQty += this.curData3[array[i]].qty*1;
+                //     }
+                
+            },
+            back:function(){
+                router.push("/index");
+            },
+            //qty减少
+            minus:function(idx){
+                var n=this.curData3[idx].qty;
+                n--;
+                if(n<1){
+                    n=1;
+                }
+                this.curData3[idx].qty =n;
+                if(n>1){
+                    http1.post('http://10.3.136.9:8080/carGoodsUpdate',{db:'carGoods',id:this.curData3[idx].id,qty:this.curData3[idx].qty}).then((res) => {
+                        console.log('this',this); 
+
+                    })  
+                }
+                
+                console.log('checked',this.$refs.radio[0].checked);
+                console.log('checked',this.$refs.radio[1].checked);
+                console.log(idx)
+                let array = [];
+                for(var i=0;i<this.$refs.radio.length;i++){
+                    if(this.$refs.radio[i].checked == true){
+                        console.log(this.$refs.radio[i].id)
+                        array.push(this.$refs.radio[i].id)
+                    }
+                }
+                console.log('array',array)
+                if(this.minus1 == true){
+                    
+                    this.price = 0;
+                    this.totalQty = 0;
+                    for(var i=0;i<array.length;i++){
+                        this.price+=this.curData3[array[i]].price*this.curData3[array[i]].qty;
+                        this.totalQty += this.curData3[array[i]].qty*1;
+                    }
+                }
+                console.log(88,this.minus1);
+                
+
+            },
+            //qty增加
+            plus:function(idx){     
+                this.curData3[idx].qty = this.curData3[idx].qty*1 + 1;
+                http1.post('http://10.3.136.9:8080/carGoodsUpdate',{db:'carGoods',id:this.curData3[idx].id,qty:this.curData3[idx].qty}).then((res) => {
+                    console.log(res);
+                });
+                console.log(this.price);
+                // this.price = 0;
+                // for(var i=0;i<this.curData3.length;i++){
+                    
+                //     this.price+=this.curData3[i].price*this.curData3[i].qty;
+                // }
+                let array = [];
+                for(var i=0;i<this.$refs.radio.length;i++){
+                    if(this.$refs.radio[i].checked == true){
+                        console.log(this.$refs.radio[i].id)
+                        array.push(this.$refs.radio[i].id)
+                    }
+                }
+                console.log('array',array)
+                if(this.minus1 == true){
+                    
+                    this.price = 0;
+                    this.totalQty = 0;
+                    for(var i=0;i<array.length;i++){
+                        this.price+=this.curData3[array[i]].price*this.curData3[array[i]].qty;
+                        this.totalQty += this.curData3[array[i]].qty*1;
+                    }
+                }
             },
           
             deletePro: function(){
@@ -241,31 +393,30 @@
                                 }
 
                                 this.curData3 = this.curData;
-                                console.log(this.curData3)
-                                //计算总价、数量
-                                for(var i=0;i<this.curData3.length;i++){
-                                    this.price = 0;
-                                    this.price += this.curData3[i].price*this.curData3[i].qty;
-                                    this.totalQty += (this.curData3[i].qty)*1;
-                                }
-                                //console.log(this.price)
-                                //console.log(this.totalQty)
                                 
-                                if(this.curData3.length==0){
-                                    this.price=0;
-                                    this.totalQty=0;
-                                }
+                                // //计算总价、数量
+                                // for(var i=0;i<this.curData3.length;i++){
+                                //     this.price = 0;
+                                //     this.price += this.curData3[i].price*this.curData3[i].qty;
+                                //     this.totalQty += (this.curData3[i].qty)*1;
+                                // }
+                                // //console.log(this.price)
+                                // //console.log(this.totalQty)
+                                
+                                // if(this.curData3.length==0){
+                                //     this.price=0;
+                                //     this.totalQty=0;
+                                // }
 
                             })
-
-
-
-
                     })
 
                 })
 
                 this.trs = [];
+                this.totalQty = 0;
+                this.price = 0;
+              
             }
 
         }

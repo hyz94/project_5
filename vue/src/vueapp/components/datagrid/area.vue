@@ -2,12 +2,11 @@
     <div class="product_bottom" 
     ref="main"
     >
-        <ul class="product_list" ref="mainUl" :style="{width:ulWidth + 'px',left:ulLeft+'px', transition:'all .5s'}" >
+        <ul class="product_list" ref="mainUl" :style="{width:ulWidth + 'px',left:ulLeft+'px', transition:transitionX}" >
             <li v-for="(obj,idx) in dataset" ref="mainLi"
-            @touchstart="touchStart" 
+            @touchstart='touchStart'
             @touchmove='touchMove' 
             @touchend='touchEnd(obj.id)'
-            @click="showDetail(obj.id)"
             >
                 <img :src="obj.imgurl" alt="" />
                 <p class="product-name inaline">{{obj.name}}</p>
@@ -37,7 +36,6 @@
     import './area.css'
     import axios from 'axios'
     import spinner from '../spinner/spinner.vue'
-    import './area.css'
     
     export default{
         data(){
@@ -55,6 +53,7 @@
                 ulLeft:20,
                 liWidth:0,
                 len:0,
+                transitionX:'',
             }
         },
         components:{
@@ -77,9 +76,7 @@
                     this.moveX = ev.touches[0].clientX;
                     this.disX = this.moveX - this.startX;
                     this.ulLeft = this.startPoX + this.disX;
-                    this.slideEffect = 'translateX('+ 
-                    this.ulLeft
-                    + 'px)'
+                    this.transitionX='';
                 }
             },
             touchEnd:function(id){
@@ -97,9 +94,7 @@
                     if(currNum>=this.len-2){
                         this.ulLeft = -this.liWidth *this.len + mainWidth;
                     }
-                    this.slideEffect = 'translateX('+ 
-                    this.ulLeft
-                    + 'px)'
+                    this.transitionX='all 0.3s';
                 }
                 
             }
@@ -107,7 +102,6 @@
         mounted(){
             this.show = true;
             axios.get(this.config.api,{params:this.config.params || {}}).then((res)=>{
-                console.log(res.data.data)
                 for(var i=0;i<res.data.data.length;i++){
                     if(res.data.data[i].mainType == this.config.cols){
                         this.arr.push(res.data.data[i]);

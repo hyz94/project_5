@@ -1,39 +1,20 @@
 <template>
     <div>
         <ul class="comments">
-            <li>
+            <li v-for='(obj,idx) in comts' v-if='idx<=num'>
                 <p class="nameTime">
-                    <span>来自：巴拉拉小魔仙</span><span>2018-2-2</span> 
+                    <span>来自:{{obj.name}}</span><span>{{obj.time}}</span> 
                 </p>
-                <p>衣服很好，下次再买</p>
+                <p>{{obj.comt}}</p>
             </li>
-            <li>
-                <p class="nameTime">
-                    <span>来自：钢铁侠</span><span>2018-3-2</span> 
-                </p>
-                <p>还不错吧还不错吧</p>
-            </li>
-            <li>
-                <p class="nameTime">
-                    
-                </p><span>来自：金刚狼</span><span>2018-1-2</span> 
-                <p>不太适合我这个铁男</p>
-            </li>
-            <li>
-                <p class="nameTime">
-                    <span>来自：韩立</span><span>2018-1-2</span> 
-                </p>
-                <p>老子已经大乘期了</p>
-            </li>
-            <li>
-                <p class="nameTime">
-                    <span>来自：贪狼</span><span>2018-1-2</span> 
-                </p>
-                <p>奋斗在非洲的日子</p>
-            </li>
+           
         </ul>
 
-        <div class="btnWrap"><button class="btnMore">查看更多</button></div>
+        <div class="btnWrap">
+            <button class="btnMore" @click="btnMore" v-if="show">查看更多</button>
+            <div class="showLast"  v-if="showLast">没有更多评论了~~~</div>
+        </div>
+        
     </div>
 </template>
 
@@ -42,6 +23,24 @@
 import './pro_comment.scss'
 
 export default{
-    
+    data(){
+        return{
+            comts:[{name:'巴拉拉小魔仙',comt:'衣服很好，下次再买',time:'2018-2-2'},{name:'巴拉拉小魔仙',comt:'衣服很好，下次再买',time:'2018-2-2'},{name:'巴拉拉小魔仙',comt:'衣服很好，下次再买',time:'2018-2-2'},{name:'巴拉拉小魔仙',comt:'衣服很好，下次再买',time:'2018-2-2'},{name:'巴拉拉小魔仙',comt:'衣服很好，下次再买',time:'2018-2-2'},{name:'巴拉拉小魔仙',comt:'衣服很好，下次再买',time:'2018-2-2'},{name:'巴拉拉小魔仙',comt:'衣服很好，下次再买',time:'2018-2-2'},{name:'巴拉拉小魔仙',comt:'衣服很好，下次再买',time:'2018-2-2'},{name:'巴拉拉小魔仙',comt:'衣服很好，下次再买',time:'2018-2-2'},{name:'巴拉拉小魔仙',comt:'衣服很好，下次再买',time:'2018-2-2'},{name:'巴拉拉小魔仙',comt:'衣服很好，下次再买',time:'2018-2-2'},{name:'巴拉拉小魔仙',comt:'衣服很好，下次再买',time:'2018-2-2'},{name:'巴拉拉小魔仙',comt:'衣服很好，下次再买',time:'2018-2-2'}],
+            num:2,
+            show:true,
+            showLast:false,
+
+        }
+    },
+    methods:{
+        btnMore(){
+            if(this.num <= this.comts.length ){
+                this.num += 3;
+            }else{
+                this.show = false;
+                this.showLast = true;
+            }
+        }
+    }
 }
 </script>

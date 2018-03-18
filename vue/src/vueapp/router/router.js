@@ -31,6 +31,7 @@ import idx from '../components/index/index.vue'
 
 
 
+
 const router = new VueRouter({
     routes:[
         {path:'/',component:Home,redirect:'index',children:[
@@ -63,7 +64,7 @@ const router = new VueRouter({
             
         ]},
         {
-            path:'/login',component:Login
+            path:'/login',name:'login',component:Login
         },
         {
             path:'/zhuce',component:Zhuce
@@ -73,6 +74,21 @@ const router = new VueRouter({
         },
        
     ]
+})
+
+
+router.beforeEach((to, from, next) =>{
+//     //进入个人页面时，先判断token存在与否，若不存在，则跳转到登陆页面
+    if(to.path == '/cart'){
+        if(window.sessionStorage.getItem('username')){
+            next();
+        }else{
+            router.push({path: '/login'});
+        }
+    }else{
+        next();
+    }
+    
 })
 
 export default router;

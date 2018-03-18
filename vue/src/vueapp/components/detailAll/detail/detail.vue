@@ -158,7 +158,8 @@
            
         },
         mounted: function() {
-            http.get("http://10.3.136.9:8080/insert1?id="+ this.proId+"",).then((res)=>{
+            var proId = window.sessionStorage.getItem('proId')
+            http.get("http://10.3.136.9:8080/insert1?id="+ proId+"",).then((res)=>{
               this.dataset = res.data.data[0];
               console.log(this.dataset)
                 

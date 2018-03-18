@@ -41,12 +41,14 @@
             },
             getCommon:function(id){
                 this.$router.push({name:'detail',params:{proId:id}});
+                window.sessionStorage.setItem('proId',id);
             }
         },
         mounted: function() {
-            console.log(this.type);
-            let url = 'http://10.3.136.9:8080/insert1?smallType='+ this.type;
-            console.log(url);
+            // console.log(this.type);
+            var type  =  window.sessionStorage.getItem('smallType');
+            let url = 'http://10.3.136.9:8080/insert1?smallType='+ type;
+            // console.log(url);
             http.get(url).then((res)=>{
               this.dataset = res.data.data;
               console.log(this.dataset)

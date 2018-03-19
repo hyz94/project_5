@@ -64,6 +64,7 @@
 					console.log(res);
 					type = res.data.data[0].smallType;
 					console.log(type);
+					 window.sessionStorage.setItem('smallType',type);	
 					this.$router.push({name:'list',params:{type:type}});
 	            });
 	            console.log(type);

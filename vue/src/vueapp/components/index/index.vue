@@ -1,13 +1,7 @@
 <template>
     <div class="vancl">
         <header id="v_header">
-            <div class="search">
-                <i class="fa fa-search"></i>
-                <input type="text" placeholder="熊本熊"/>
-                <router-link to="/login" class="msg">
-                    <span>...</span>
-                </router-link>
-            </div>
+            <search></search>
         </header>
         <section id="carousel">
             <carousel></carousel>
@@ -84,22 +78,19 @@
 
 <script>
     import './index.css'
-    //import './base.css'
     import '../../common/jquery-3.2.1.js'
     import carousel from './carousel/carousel.vue'
-    //import manClothes from './area/manClothes.vue'
     import Area from '../datagrid/area.vue'
-    //import './index.js'
-    //
-
+    import search from './search/search.vue'
     export default{
         components:{
             carousel,
-            Area
+            Area,
+            search
         },
+        props:['config'],
         data(){
             return{
-
                 configManC:{
                     api:'http://10.3.136.9:8080/products',
                     params :{showNum:5},
@@ -119,14 +110,11 @@
                     api:'http://10.3.136.9:8080/products',
                     params : {showNum:5},
                     cols:['womenShoes']
-                }
+                },
 
             }
         },
-        mounted(){
-            $('.product_list')
-
-
+        methods:{
         }
     }
 </script>

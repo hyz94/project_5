@@ -56,7 +56,7 @@
                   }, []);
                 }          
                 this.dataset = arrayUnique2(this.arr, "smallType");
-                console.log(this.dataset);
+                
                 this.show = false;
 
             })

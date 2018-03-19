@@ -6,6 +6,8 @@ import App from './components/app/app.vue'
 
 import router from './router/router'
 
+
+
 new Vue({
     el:'#app',
     render:h=>h(App),

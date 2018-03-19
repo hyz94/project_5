@@ -8,7 +8,7 @@
         <div class='nav'>
             <span>新品</span>
             <span>销量</span>
-            <span>价格<i class='fa fa-unsorted sort'></i></span>
+            <span @click="sort">价格<i class='fa fa-unsorted sort'></i></span>
             <span>好评</span>
         </div>
         <div class='main'>
@@ -32,7 +32,8 @@
         data(){
             return{ 
                 type:this.$route.params.type,
-                dataset:[]
+                dataset:[],
+                sortNum:0
             }
         },
         methods:{
@@ -42,6 +43,22 @@
             getCommon:function(id){
                 this.$router.push({name:'detail',params:{proId:id}});
                 window.sessionStorage.setItem('proId',id);
+            },
+            sort:function(){
+                this.sortNum++
+                if(this.sortNum%2==0){
+                    this.dataset.sort(function(a,b){
+                        var x = a.price;
+                        var y = b.price;
+                        return y-x;
+                    })
+                }else{
+                    this.dataset.sort(function(a,b){
+                        var x = a.price;
+                        var y = b.price;
+                        return x-y;
+                    })
+                }
             }
         },
         mounted: function() {
@@ -50,9 +67,8 @@
             let url = 'http://10.3.136.9:8080/insert1?smallType='+ type;
             // console.log(url);
             http.get(url).then((res)=>{
-              this.dataset = res.data.data;
-              console.log(this.dataset)
-                
+                this.dataset = res.data.data;
+                console.log(this.dataset);
             })
         }
     }

@@ -24,7 +24,7 @@
                     display:inline-block;height: 280px;width: 98%;
                 }
                 .goods_name{
-                    color:#4C4C4C;height: 60px;line-height: 60px;
+                    color:#4C4C4C;height: 60px;line-height: 60px;white-space: nowrap;overflow:hidden;text-overflow:ellipsis;
                 }
                 .goods_price{
                     color:#941D39;

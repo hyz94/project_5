@@ -11,7 +11,7 @@
             </li>
             <li>
                 <i class="fa fa-shopping-cart"></i>
-                <router-link to="/cart">购物车</router-link>
+                <div @click="gocar">购物车</div>
             </li>
             <li>
                 <i class="fa fa-user-o"></i>
@@ -21,6 +21,18 @@
     </div>
 </template>
 <script>
+    import router from '../../../router/router.js'
     import './nav.css'
-    export default{}
+    export default{
+        methods:{
+            gocar(){
+                if(window.sessionStorage.getItem('username')){
+                    router.push({path:'/cart'});
+                }else{
+                    router.push({path:'/login'})
+                }
+
+            }
+        }
+    }
 </script>

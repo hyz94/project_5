@@ -126,7 +126,26 @@
                             }
                         }
                     }
+
+                    console.log(this.curData);
+
+                    for(var i=0;i<this.curData.length;i++){
+                        if((i+1)==this.curData.length){
+                            break;
+                        }else if(this.curData[i].id==this.curData[i+1].id){
+                            this.curData[i].qty = (this.curData[i].qty*1) + (this.curData[i+1].qty*1);
+                            this.curData.splice(i+1,1);
+                            i--;
+                        }
+                    }
+                    console.log(this.curData);
                     this.curData3 = this.curData;
+
+
+
+
+
+
                     
                     //计算总价、数量
                     for(var i=0;i<this.curData3.length;i++){

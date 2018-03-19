@@ -8,7 +8,7 @@
         <div class='nav'>
             <span>新品</span>
             <span>销量</span>
-            <span>价格<i class='fa fa-unsorted sort'></i></span>
+            <span @click="sort">价格<i class='fa fa-unsorted sort'></i></span>
             <span>好评</span>
         </div>
         <div class='main'>
@@ -47,6 +47,7 @@
                 page:1,
                 limit:10,
                 num:'',
+                sortNum:0,
             }
         },
         methods:{
@@ -83,7 +84,23 @@
                 console.log(777);
                 if(this.page>=this.num){return false;}else{this.page++}
                  this.ajaxPage();
-            }
+            },
+            sort:function(){
+                this.sortNum++
+                if(this.sortNum%2==0){
+                    this.dataset.sort(function(a,b){
+                        var x = a.price;
+                        var y = b.price;
+                        return y-x;
+                    })
+                }else{
+                    this.dataset.sort(function(a,b){
+                        var x = a.price;
+                        var y = b.price;
+                        return x-y;
+                    })
+                }
+            },
         },
         mounted: function() {
             // console.log(this.type);

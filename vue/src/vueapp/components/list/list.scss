@@ -33,4 +33,30 @@
         }
         
     }
+    .pageWrap{
+        padding:40px 0;
+        .pages{
+
+            a{
+                display:inline-block;
+                font-size: 28px;
+                margin-right: 10px;
+                color:#4c4c4c;
+
+                &.prev{
+                    padding:6px 36px 6px 30px;
+                }
+                &.next{
+                    padding:6px 36px 6px 24px;
+                }
+
+                &.pageNumber{
+                    padding:6px 12px;
+                }
+            }
+        }
+    }
+}
+.activePage{
+    color:#b81b22 !important;
 }

@@ -8,35 +8,60 @@
         <div class='nav'>
             <span>新品</span>
             <span>销量</span>
-            <span @click="sort">价格<i class='fa fa-unsorted sort'></i></span>
+            <span>价格<i class='fa fa-unsorted sort'></i></span>
             <span>好评</span>
         </div>
         <div class='main'>
             <ul class='goods_detail'>
-                <li v-for="(obj,idx) in dataset" @click="getCommon(obj.id)">
+                <li v-for="(obj,idx) in dataset" @click="getCommon(obj.id)" >
                     <img :src='obj.imgurl'/>
                     <p class='goods_name'>{{obj.name}}</p>
                     <p class='goods_price'>{{obj.price}}</p>
                 </li>
                 
             </ul>
+            <div class="pageWrap">
+                <div class="pages">
+                    <a href="javascript:void(0);" class="prev" @click="pageJian">上一页</a>
+                    <a href="javascript:void(0);" v-for="idx in num" class="pageNumber" :class= "{activePage:idx == page}"  @click="changePage(idx)">{{idx}}</a>
+
+
+                    <a href="javascript:void(0);" class="next" @click="pageJia">下一页</a>
+                </div>
+            </div>
         </div>
+
+       
     </div>
 </template>
 
 <script>
     import './list.scss'
-    import http from "axios"
-    import  router from '../../router/router'  
+    import http from "../../common/httpclient.js"
+    import router from '../../router/router'  
     export default{
         data(){
             return{ 
                 type:this.$route.params.type,
                 dataset:[],
-                sortNum:0
+                page:1,
+                limit:10,
+                num:'',
             }
         },
         methods:{
+            ajaxPage(){
+                var type  =  window.sessionStorage.getItem('smallType');
+                var params = "smallType="+type+'&page='+this.page+'&limit='+this.limit;
+
+                http.get('http://10.3.136.9:8080/insert1?'+ params).then((res)=>{
+               
+                      
+                    this.dataset = res.data.data;
+                     
+                    
+                })
+            },
             back(){
                 router.push("/classify");
             },
@@ -44,31 +69,39 @@
                 this.$router.push({name:'detail',params:{proId:id}});
                 window.sessionStorage.setItem('proId',id);
             },
-            sort:function(){
-                this.sortNum++
-                if(this.sortNum%2==0){
-                    this.dataset.sort(function(a,b){
-                        var x = a.price;
-                        var y = b.price;
-                        return y-x;
-                    })
-                }else{
-                    this.dataset.sort(function(a,b){
-                        var x = a.price;
-                        var y = b.price;
-                        return x-y;
-                    })
-                }
+            changePage:function(idx){
+                this.page = idx;
+                this.ajaxPage();
+
+            },
+            pageJian(){
+                console.log(666);
+                if(this.page<=1){return false;}else{this.page--}
+                 this.ajaxPage();
+            },
+            pageJia(){
+                console.log(777);
+                if(this.page>=this.num){return false;}else{this.page++}
+                 this.ajaxPage();
             }
         },
         mounted: function() {
             // console.log(this.type);
             var type  =  window.sessionStorage.getItem('smallType');
-            let url = 'http://10.3.136.9:8080/insert1?smallType='+ type;
+            var page = this.page;
+            var limit = this.limit;
+            var params = "smallType="+type+'&page='+page+'&limit='+limit;
+
+            let url = 'http://10.3.136.9:8080/insert1?';
             // console.log(url);
-            http.get(url).then((res)=>{
-                this.dataset = res.data.data;
-                console.log(this.dataset);
+            http.get('http://10.3.136.9:8080/insert1?'+ params).then((res)=>{
+               
+                console.log(res.data.qty)
+              this.num = Number(res.data.qty)/Number(this.limit);
+              
+              this.dataset = res.data.data;
+             
+                
             })
         }
     }
